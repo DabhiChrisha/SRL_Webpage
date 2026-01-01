@@ -7,7 +7,7 @@ function App() {
   return (
     <div className="min-h-screen bg-slate-950 flex items-center justify-center">
       <div className="p-10 rounded-2xl border border-slate-700 bg-slate-900 shadow-xl">
-        <h1 className="text-4xl font-extrabold text-cyan-400 mb-4 text-center">
+        <h1 className="text-4xl font-extrabold text-pink-400 mb-4 text-center">
           Tailwind Validation Successful
         </h1>
 
