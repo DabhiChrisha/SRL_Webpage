@@ -6,6 +6,7 @@ import Leaderboard from "./components/Leaderboard";
 import Members from "./components/Members";
 import Gallery from "./components/Gallery";
 import Footer from "./components/Footer";
+import ContactUs1 from "./components/mvpblocks/contact-us-1.jsx";
 
 export default function App() {
   return (
@@ -17,6 +18,7 @@ export default function App() {
       <Leaderboard />
       <Members />
       <Gallery />
+      <ContactUs1 />
       <Footer />
     </div>
   );

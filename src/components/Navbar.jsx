@@ -1,103 +1,219 @@
-import { useState } from "react";
-import { Menu, X } from "lucide-react";
+import { useState, useRef, useEffect } from "react";
+import "@fontsource/literata";
 
 export default function Navbar() {
-  const [isOpen, setIsOpen] = useState(false);
+  const [open, setOpen] = useState(false);
+  const downloadRef = useRef(null);
+  const [showDownload, setShowDownload] = useState(false);
 
-  const navItems = [
-    "Visionary Charter",
-    "Activities",
-    "Students' Leaderboard",
-    "Mentors & Members",
-    "Gallery"
+  const navLinks = [
+    { label: "Visionary Charter", href: "visionary-charter" },
+    { label: "Activities", href: "activities" },
+    { label: "Students' Leaderboard", href: "students-leaderboard" },
+    { label: "Mentors & Members", href: "mentors-members" },
+    { label: "Gallery", href: "gallery" },
   ];
 
+  const organizationLogos = [
+    { src: "/svkm.png", alt: "SVKM", href: "https://svkm.org.in" },
+    { src: "/ksv.png", alt: "KSV University", href: "https://ksv.ac.in/" },
+    { src: "/mmpsrpc.png", alt: "MMPSRPC", href: "https://www.mmpsrpc.in/" },
+  ];
+
+  const handleNavClick = (e, href) => {
+    e.preventDefault();
+    const element = document.getElementById(href);
+    if (element) {
+      element.scrollIntoView({ behavior: "smooth" });
+    }
+    setOpen(false);
+  };
+
+  const closeAll = () => {
+    setShowDownload(false);
+    setOpen(false);
+  };
+
+  useEffect(() => {
+    const handleClickOutside = (event) => {
+      if (downloadRef.current && !downloadRef.current.contains(event.target)) {
+        setShowDownload(false);
+      }
+    };
+    document.addEventListener("mousedown", handleClickOutside);
+    return () => {
+      document.removeEventListener("mousedown", handleClickOutside);
+    };
+  }, []);
+
   return (
-    <nav className="sticky top-0 z-50 bg-white border-b border-gray-100 shadow-sm">
-      <div className="max-w-7xl mx-auto px-6 py-3 flex items-center justify-between">
-        
-        {/* Left Branding */}
-        <a href="#top" className="flex items-center gap-2 flex-shrink-0">
-          <div className="w-10 h-10 rounded-lg flex items-center justify-center" style={{ backgroundColor: "#05877a" }}>
-            <span className="text-lg font-bold text-white">S</span>
+    <>
+      <header className="fixed w-full z-50 top-0 left-0 bg-white/95 backdrop-blur-sm shadow-sm">
+        <div className="max-w-full mx-auto px-3 sm:px-4 md:px-6 lg:px-8 py-2 sm:py-3 lg:py-4 flex items-center justify-between">
+          
+          {/* LEFT LOGO & BRANDING - SRL */}
+          <div className="flex items-center gap-3 flex-shrink-0">
+            <a href="#top" className="flex items-center gap-2">
+              <div className="h-8 w-8 sm:h-10 sm:w-10 lg:h-12 lg:w-12 flex items-center justify-center flex-shrink-0">
+                <img src="/SRL Logo.svg" alt="SRL" className="h-full w-full object-contain" />
+              </div>
+              <div className="hidden sm:block">
+                <div className="text-sm lg:text-lg font-bold tracking-tight" style={{ color: "#1a1a1a", fontFamily: "'Literata', serif" }}>
+                  SRL
+                </div>
+                <div className="text-xs opacity-60" style={{ color: "#1a1a1a", fontFamily: "'Literata', serif" }}>
+                  Student Research Lab
+                </div>
+              </div>
+            </a>
           </div>
-          <div className="hidden sm:block">
-            <div className="text-lg font-bold tracking-tight" style={{ color: "#05877a" }}>
-              SRL
-            </div>
-            <div className="text-xs opacity-60" style={{ color: "#05877a" }}>
-              Student Research Lab
-            </div>
-          </div>
-        </a>
 
-        {/* Center Navigation - Desktop */}
-        <ul className="hidden lg:flex items-center gap-1">
-          {navItems.map((item) => (
-            <li key={item}>
-              <a
-                href={`#${item.toLowerCase().replace(/[^a-z]+/g, "-")}`}
-                className="px-4 py-2 text-sm font-medium rounded-lg transition-colors hover:bg-gray-100"
-                style={{ 
-                  color: "#333",
-                  fontWeight: "500"
-                }}
-              >
-                {item}
-              </a>
-            </li>
-          ))}
-        </ul>
-
-        {/* Right CTA Button - Desktop */}
-        <div className="hidden lg:block flex-shrink-0">
-          <button 
-            className="px-6 py-2.5 rounded-lg font-semibold text-white transition-transform hover:scale-105 active:scale-95"
-            style={{ backgroundColor: "#05877a" }}
-          >
-            ImpactThon @KSV
-          </button>
-        </div>
-
-        {/* Mobile Menu Button */}
-        <button 
-          onClick={() => setIsOpen(!isOpen)}
-          className="lg:hidden p-2 rounded-lg transition-colors hover:bg-gray-100"
-        >
-          {isOpen ? (
-            <X size={24} style={{ color: "#05877a" }} />
-          ) : (
-            <Menu size={24} style={{ color: "#05877a" }} />
-          )}
-        </button>
-      </div>
-
-      {/* Mobile Menu */}
-      {isOpen && (
-        <div className="lg:hidden border-t border-gray-100 bg-white">
-          <ul className="flex flex-col">
-            {navItems.map((item) => (
-              <li key={item} className="border-b border-gray-100">
+          <nav className="flex-1">
+            {/* DESKTOP MENU */}
+            <div className="hidden lg:flex items-center text-xs lg:text-sm gap-1 lg:gap-2 justify-center">
+              {navLinks.map((item, i) => (
                 <a
-                  href={`#${item.toLowerCase().replace(/[^a-z]+/g, "-")}`}
-                  className="block px-6 py-3 text-sm font-medium text-gray-700 hover:bg-gray-50 transition-colors"
-                  onClick={() => setIsOpen(false)}
+                  key={i}
+                  href={`#${item.href}`}
+                  onClick={(e) => handleNavClick(e, item.href)}
+                  className="px-3 lg:px-4 py-2 font-medium transition-colors relative"
+                  style={{ color: "#333" }}
                 >
-                  {item}
+                  {item.label}
+                  <span 
+                    className="absolute bottom-0 left-1/2 -translate-x-1/2 w-0 h-0.5 transition-all duration-300 hover:w-3/4"
+                    style={{ backgroundColor: "#05877a" }}
+                  ></span>
                 </a>
-              </li>
-            ))}
-            <li className="p-4">
+              ))}
+
+              {/* GLOW BUTTON */}
+              <div className="ml-4 flex-shrink-0">
+                <button 
+                  className="glow-btn px-6 py-2.5 rounded-xl font-semibold text-black relative z-10 overflow-hidden"
+                  style={{ backgroundColor: "white" }}
+                >
+                  <span className="relative z-10">ImpactThon @KSV</span>
+                  <span className="glow-layer"></span>
+                </button>
+              </div>
+            </div>
+
+            {/* MOBILE ICON */}
+            <div className="flex lg:hidden items-center gap-2">
               <button 
-                className="w-full px-6 py-2.5 rounded-lg font-semibold text-white transition-transform hover:scale-105 active:scale-95"
-                style={{ backgroundColor: "#05877a" }}
+                onClick={() => setOpen(!open)} 
+                className="p-2 text-2xl transition-colors"
+                style={{ color: "#05877a" }}
               >
-                ImpactThon @KSV
+                {open ? "✕" : "☰"}
               </button>
-            </li>
-          </ul>
+            </div>
+
+            {/* MOBILE MENU */}
+            {open && (
+              <div className="absolute right-4 top-full mt-3 bg-white shadow-xl rounded-lg w-72 p-4 border border-gray-100">
+                {navLinks.map((item, i) => (
+                  <a
+                    key={i}
+                    href={`#${item.href}`}
+                    onClick={(e) => handleNavClick(e, item.href)}
+                    className="block py-3 px-2 hover:bg-gray-50 rounded transition-colors"
+                    style={{ color: "#333" }}
+                  >
+                    {item.label}
+                  </a>
+                ))}
+
+                <div className="mt-4 pt-4 border-t">
+                  <button 
+                    className="w-full glow-btn px-6 py-3 rounded-xl font-semibold text-white relative z-10 overflow-hidden"
+                    style={{ backgroundColor: "white" }}
+                  >
+                    <span className="relative z-10">ImpactThon @KSV</span>
+                    <span className="glow-layer"></span>
+                  </button>
+                </div>
+              </div>
+            )}
+          </nav>
+
+          {/* RIGHT LOGOS - Organization Logos */}
+          <div className="hidden xl:flex items-center gap-2 ml-4 shrink-0">
+            {organizationLogos.map((logo, i) => (
+              <a
+                key={i}
+                href={logo.href}
+                target={logo.href ? "_blank" : undefined}
+                rel={logo.href ? "noopener noreferrer" : undefined}
+              >
+                <img src={logo.src} className="h-12 object-contain" alt={logo.alt} />
+              </a>
+            ))}
+          </div>
         </div>
-      )}
-    </nav>
+      </header>
+
+      {/* GLOW ANIMATION STYLES */}
+      <style>{`
+        @property --a {
+          syntax: "<angle>";
+          initial-value: 0deg;
+          inherits: false;
+        }
+
+        @keyframes glowSpin {
+          to { --a: 1turn; }
+        }
+
+        .glow-btn {
+          position: relative;
+          overflow: hidden;
+          z-index: 0;
+          box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+          transition: transform 0.3s ease, box-shadow 0.3s ease;
+          border-radius: 0.75rem;
+        }
+
+        .glow-btn:hover {
+          transform: translateY(-3px);
+          box-shadow: 0 15px 30px rgba(0, 0, 0, 0.2);
+        }
+
+        .glow-layer {
+          position: absolute;
+          inset: -0.7em;
+          border-radius: inherit;
+          border: solid 0.7em;
+          border-image: conic-gradient(
+            from var(--a),
+            #669900,
+            #99cc33,
+            #ccee66,
+            #006699,
+            #3399cc,
+            #990066,
+            #cc3399,
+            #ff6600,
+            #ff9900,
+            #ffcc00,
+            #669900
+          ) 1;
+          filter: blur(0.6em);
+          animation: glowSpin 4s linear infinite;
+          pointer-events: none;
+        }
+
+        @media (max-width: 1024px) {
+          .glow-btn {
+            box-shadow: 0 6px 12px rgba(0, 0, 0, 0.1);
+          }
+
+          .glow-btn:hover {
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.15);
+          }
+        }
+      `}</style>
+    </>
   );
 }
