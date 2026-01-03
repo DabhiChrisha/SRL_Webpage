@@ -6,13 +6,13 @@ export default function VisionaryPillarCards({ visible }) {
       title: "Vision",
       Icon: Lightbulb,
       content:
-        "To build a disciplined research-driven community that nurtures long-term thinkers and academic leaders."
+        "To build a disciplined research-driven community that nurtures long-term thinkers, innovators, and academic leaders."
     },
     {
       title: "Mission",
       Icon: Target,
       content:
-        "To cultivate critical thinking and collaborative research through structured activities and mentorship."
+        "To cultivate consistency, critical thinking, and collaborative research through structured activities and mentorship."
     },
     {
       title: "Objectives",
@@ -42,30 +42,24 @@ export default function VisionaryPillarCards({ visible }) {
             transition-all
             duration-300
             hover:-translate-y-2
-            ${
-              visible ? "animate-fade-up" : "opacity-0"
-            }
+            ${visible ? "animate-fade-up" : "opacity-0"}
           `}
         >
-          {/* Orbiting Ring */}
+          {/* Orbit ring */}
           <div className="orbit-ring" />
 
-          {/* Icon */}
           <div className="relative z-10 w-14 h-14 flex items-center justify-center rounded-full bg-white/40 shadow-md mb-4">
             <Icon className="w-7 h-7 text-[#05877a]" />
           </div>
 
-          {/* Title */}
           <h4 className="relative z-10 text-xl font-semibold text-white mb-2">
             {title}
           </h4>
 
-          {/* Content */}
           <p className="relative z-10 text-white/90 text-sm leading-relaxed">
             {content}
           </p>
 
-          {/* Accent line */}
           <div className="relative z-10 mt-5 h-[2px] w-12 bg-white/60" />
         </div>
       ))}

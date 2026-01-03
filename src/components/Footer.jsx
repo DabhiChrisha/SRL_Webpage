@@ -1,7 +1,7 @@
 // ==============================
 // SRL_Webpage/src/components/Footer.jsx
 // ==============================
-export default function Footer() {
+ function Footer() {
   return (
     <footer className="bg-srlGreen text-srlBeige py-8">
       <div className="max-w-7xl mx-auto px-6 text-sm flex justify-between">
@@ -11,3 +11,4 @@ export default function Footer() {
     </footer>
   );
 }
+export default Footer;

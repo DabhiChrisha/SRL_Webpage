@@ -18,7 +18,7 @@ export default function SRLAppointmentButton() {
           text-sm
           font-semibold
           text-white
-          bg-[#d0a001]
+          bg-[#05877a]
           shadow-md
           transition-all
           duration-300
@@ -41,7 +41,7 @@ export default function SRLAppointmentButton() {
             rounded-full
             opacity-0
             blur-xl
-            bg-[#987911]
+            bg-[#05877a]
             transition-opacity
             duration-300
             group-hover:opacity-40
