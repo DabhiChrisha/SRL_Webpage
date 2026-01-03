@@ -16,7 +16,8 @@ export default function Navbar() {
     { label: "Visionary Charter", id: "visionary-charter" },
     { label: "Activities", id: "activities" },
     { label: "Students' Leaderboard", id: "students-leaderboard" },
-    { label: "Mentors & Members", id: "mentors-members" }
+    { label: "SRL Members", id: "srl-student-members" }
+
   ];
 
   // Scroll spy + blur trigger

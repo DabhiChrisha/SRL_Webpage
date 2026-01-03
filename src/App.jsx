@@ -7,7 +7,10 @@ import Hero from "./components/Hero";
 import VisionaryCharter from "./components/VisionaryCharter";
 import Activities from "./components/Activities";
 import Leaderboard from "./components/Leaderboard";
-import Members from "./components/Members";
+import HeadSRL from "./components/HeadSRL";
+import SRLStudentMembers from "./components/SRLStudentMembers";
+import ContactUs1 from "./components/mvpblocks/contact-us-1";
+
 
 
 export default function App() {
@@ -18,7 +21,9 @@ export default function App() {
       <VisionaryCharter />
       <Activities />
       <Leaderboard />
-      <Members />
+      <HeadSRL />
+      <SRLStudentMembers />
+      <ContactUs1 />
       <Footer />
     </div>
   );
