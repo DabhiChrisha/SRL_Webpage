@@ -10,6 +10,7 @@ import Leaderboard from "./components/Leaderboard";
 import HeadSRL from "./components/HeadSRL";
 import SRLStudentMembers from "./components/SRLStudentMembers";
 import ContactUs1 from "./components/mvpblocks/contact-us-1";
+import   ScrollToTop  from "./components/ScrollToTop";
 
 
 
@@ -25,6 +26,7 @@ export default function App() {
       <SRLStudentMembers />
       <ContactUs1 />
       <Footer />
+      <ScrollToTop />
     </div>
   );
 }
