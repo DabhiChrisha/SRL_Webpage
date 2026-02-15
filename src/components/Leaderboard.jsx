@@ -10,7 +10,7 @@ export default function Leaderboard() {
   const rest = sorted.slice(3);
 
   return (
-    <section className="bg-gradient-to-b from-cyan-50 to-emerald-50 py-20">
+    <section className="bg-linear-to-b from-cyan-50 to-emerald-50 py-20">
       <div className="max-w-6xl mx-auto px-4">
 
         {/* Section Title */}

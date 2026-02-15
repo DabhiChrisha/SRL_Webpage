@@ -1,6 +1,7 @@
 import { useEffect, useState } from "react";
 import { Menu, X } from "lucide-react";
 import SRLAppointmentButton from "./SRLAppointmentButton";
+import JoinUsButton from "./JoinUsButton";
 
 import srlLogo from "../assets/SRL Logo.png";
 import ksvLogo from "../assets/KSV Logo.png";
@@ -93,7 +94,7 @@ export default function Navbar() {
                     after:absolute
                     after:left-0
                     after:-bottom-1
-                    after:h-[2px]
+                    after:h-0.5
                     after:bg-[#05877a]
                     after:transition-all
                     after:duration-300
@@ -115,7 +116,10 @@ export default function Navbar() {
             <img src={mmpsrpcLogo} alt="MMPSRPC Logo" className="h-9" />
           </div>
 
-          <SRLAppointmentButton />
+          <div className="flex items-center gap-3">
+            <JoinUsButton />
+            <SRLAppointmentButton />
+          </div>
         </div>
 
         {/* ================= MOBILE TOGGLE ================= */}

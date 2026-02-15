@@ -36,7 +36,7 @@ export default function StudentReflections() {
         </div>
 
         {/* Animated Container */}
-        <div className="relative h-[420px] overflow-hidden">
+        <div className="relative h-105 overflow-hidden">
           {loading ? (
             <div className="flex items-center justify-center h-full text-gray-500">
               Loading reflections…
@@ -70,8 +70,8 @@ export default function StudentReflections() {
       </div>
 
       {/* Fade Effects */}
-      <div className="pointer-events-none absolute top-0 left-0 right-0 h-24 bg-gradient-to-b from-[#0b0f0e] to-transparent" />
-      <div className="pointer-events-none absolute bottom-0 left-0 right-0 h-24 bg-gradient-to-t from-[#0b0f0e] to-transparent" />
+      <div className="pointer-events-none absolute top-0 left-0 right-0 h-24 bg-linear-to-b from-[#0b0f0e] to-transparent" />
+      <div className="pointer-events-none absolute bottom-0 left-0 right-0 h-24 bg-linear-to-t from-[#0b0f0e] to-transparent" />
     </section>
   );
 }

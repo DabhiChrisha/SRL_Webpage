@@ -10,7 +10,7 @@ export default function Hero() {
       <div className="max-w-7xl mx-auto px-6 grid grid-cols-1 lg:grid-cols-2 gap-12 items-center w-full">
 
         {/* ================= LEFT: VIDEO ================= */}
-        <div className="relative w-full h-[280px] sm:h-[360px] lg:h-[420px] flex items-center justify-center">
+        <div className="relative w-full h-70 sm:h-90 lg:h-105 flex items-center justify-center">
           <video
             className="w-full h-full object-contain rounded-2xl shadow-lg"
             src={heroVideo}
