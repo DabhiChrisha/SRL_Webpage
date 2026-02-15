@@ -25,7 +25,7 @@ export default function HeadSRL() {
           {/* LEFT – MESSAGE */}
           <div>
             <div className="text-sm uppercase tracking-widest text-[#05877a] font-semibold mb-4">
-              SRL Mentor
+              SRL Mentor 
             </div>
 
             <h2 className="text-3xl md:text-4xl font-extrabold text-gray-900 mb-6">
@@ -87,7 +87,7 @@ export default function HeadSRL() {
             <div className="absolute bottom-4 right-0 bg-[#05877a] text-white text-sm px-5 py-2 rounded-full shadow-lg">
               Discipline builds excellence.
             </div>
-          </div>
+          </div> 
         </motion.div>
       </div>
     </section>
