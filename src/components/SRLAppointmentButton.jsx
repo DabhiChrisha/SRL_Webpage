@@ -58,7 +58,7 @@ export default function SRLAppointmentButton() {
             h-[300%]
             z-10
             rotate-45
-            bg-gradient-to-r
+            bg-linear-to-r
             from-transparent
             via-white/40
             to-transparent

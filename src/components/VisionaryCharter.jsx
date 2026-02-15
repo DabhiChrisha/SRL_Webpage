@@ -45,12 +45,12 @@ export default function VisionaryCharter() {
   return (
     <section
       id="visionary-charter"
-      className="relative py-32 overflow-hidden bg-gradient-to-br from-[#05877a]/95 via-[#05877a]/85 to-[#05877a]/95"
+      className="relative py-32 overflow-hidden bg-linear-to-br from-[#05877a]/95 via-[#05877a]/85 to-[#05877a]/95"
     >
       {/* Ambient background */}
       <div className="absolute inset-0 pointer-events-none">
-        <div className="absolute -top-48 -left-48 w-[40rem] h-[40rem] rounded-full bg-white/10 blur-3xl animate-soft-pulse" />
-        <div className="absolute bottom-0 right-0 w-[32rem] h-[32rem] rounded-full bg-[#f8e6c1]/10 blur-3xl animate-soft-pulse" />
+        <div className="absolute -top-48 -left-48 w-160 h-160 rounded-full bg-white/10 blur-3xl animate-soft-pulse" />
+        <div className="absolute bottom-0 right-0 w-lg h-128 rounded-full bg-[#f8e6c1]/10 blur-3xl animate-soft-pulse" />
       </div>
 
       <div
@@ -73,8 +73,8 @@ export default function VisionaryCharter() {
         {/* Grid */}
         <div className="grid grid-cols-1 lg:grid-cols-4 gap-12 items-stretch">
           {/* WHAT IS SRL */}
-          <div className="relative lg:col-span-1 rounded-[2rem] p-8 bg-white/95 backdrop-blur-xl shadow-[0_40px_80px_rgba(5,135,122,0.35)] animate-float">
-            <div className="absolute -inset-4 rounded-[2rem] bg-[#05877a]/30 blur-2xl -z-10" />
+          <div className="relative lg:col-span-1 rounded-4xl p-8 bg-white/95 backdrop-blur-xl shadow-[0_40px_80px_rgba(5,135,122,0.35)] animate-float">
+            <div className="absolute -inset-4 rounded-4xl bg-[#05877a]/30 blur-2xl -z-10" />
 
             <h3 className="text-2xl font-extrabold text-[#05877a] mb-4">
               What is SRL?
@@ -86,7 +86,7 @@ export default function VisionaryCharter() {
               rigor in research and scholarly pursuits.
             </p>
 
-            <div className="mt-8 h-[3px] w-20 bg-[#05877a]/70 rounded-full" />
+            <div className="mt-8 h-0.75 w-20 bg-[#05877a]/70 rounded-full" />
           </div>
 
           {/* Pillar Cards */}
@@ -116,7 +116,7 @@ export default function VisionaryCharter() {
                   </div>
 
                   {/* ===== CARD ITSELF (CLEAN) ===== */}
-                  <div className="relative rounded-[2rem] p-7 bg-white/20 backdrop-blur-xl border border-white/30 shadow-lg transition-all duration-300 hover:-translate-y-2">
+                  <div className="relative rounded-4xl p-7 bg-white/20 backdrop-blur-xl border border-white/30 shadow-lg transition-all duration-300 hover:-translate-y-2">
                     <div className="w-14 h-14 rounded-full bg-white/50 flex items-center justify-center mb-5">
                       <Icon className="w-7 h-7 text-[#05877a]" />
                     </div>
@@ -129,7 +129,7 @@ export default function VisionaryCharter() {
                       {item.text}
                     </p>
 
-                    <div className="mt-6 h-[2px] w-12 bg-[#f8e6c1]/60" />
+                    <div className="mt-6 h-0.5 w-12 bg-[#f8e6c1]/60" />
                   </div>
                 </div>
               );

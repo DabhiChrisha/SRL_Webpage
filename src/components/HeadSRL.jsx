@@ -4,11 +4,11 @@ import mamPhoto from "../assets/Ma'am Photo.png";
 
 export default function HeadSRL() {
   return (
-    <section className="relative py-28 bg-gradient-to-b from-white to-[#05877a]/10 overflow-hidden">
+    <section className="relative py-28 bg-linear-to-b from-white to-[#05877a]/10 overflow-hidden">
       {/* Ambient MVPBlocks accents */}
       <div className="absolute inset-0 pointer-events-none">
-        <div className="absolute -top-40 -left-40 w-[32rem] h-[32rem] bg-[#05877a]/10 rounded-full blur-3xl" />
-        <div className="absolute bottom-0 right-0 w-[24rem] h-[24rem] bg-[#05877a]/10 rounded-full blur-3xl" />
+        <div className="absolute -top-40 -left-40 w-lg h-128 bg-[#05877a]/10 rounded-full blur-3xl" />
+        <div className="absolute bottom-0 right-0 w-[24rem] h-96 bg-[#05877a]/10 rounded-full blur-3xl" />
       </div>
 
       <div className="relative max-w-6xl mx-auto px-6">
@@ -25,7 +25,7 @@ export default function HeadSRL() {
           {/* LEFT – MESSAGE */}
           <div>
             <div className="text-sm uppercase tracking-widest text-[#05877a] font-semibold mb-4">
-              SRL Mentor
+              SRL Mentor 
             </div>
 
             <h2 className="text-3xl md:text-4xl font-extrabold text-gray-900 mb-6">
@@ -76,7 +76,7 @@ export default function HeadSRL() {
           {/* RIGHT – PORTRAIT */}
           <div className="relative flex justify-center">
             <div className="relative w-72 h-72 rounded-full bg-[#05877a]/10 flex items-center justify-center">
-              <div className="absolute inset-0 rounded-full border-[14px] border-white shadow-xl" />
+              <div className="absolute inset-0 rounded-full border-14 border-white shadow-xl" />
               <img
                 src={mamPhoto}
                 alt="Dr. Himani Trivedi"
@@ -87,7 +87,7 @@ export default function HeadSRL() {
             <div className="absolute bottom-4 right-0 bg-[#05877a] text-white text-sm px-5 py-2 rounded-full shadow-lg">
               Discipline builds excellence.
             </div>
-          </div>
+          </div> 
         </motion.div>
       </div>
     </section>

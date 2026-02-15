@@ -1,6 +1,6 @@
 import { useEffect, useRef, useState } from "react";
 
-export default function useRevealOnScroll(options = {}) {
+export default function useRevealOnScroll() {
   const ref = useRef(null);
   const [visible, setVisible] = useState(false);
 
@@ -9,19 +9,16 @@ export default function useRevealOnScroll(options = {}) {
       ([entry]) => {
         if (entry.isIntersecting) {
           setVisible(true);
-          observer.unobserve(entry.target); // reveal once
+          observer.disconnect();
         }
       },
-      {
-        threshold: 0.15,
-        ...options
-      }
+      { threshold: 0.25 }
     );
 
     if (ref.current) observer.observe(ref.current);
 
     return () => observer.disconnect();
-  }, [options]);
+  }, []);
 
-  return [ref, visible];
+  return { ref, visible };
 }
