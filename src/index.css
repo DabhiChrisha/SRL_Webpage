@@ -302,3 +302,42 @@ html {
   animation: soft-pulse 9s ease-in-out infinite;
 }
 
+
+@tailwind utilities;
+
+/* ================================================= */
+/* ================ SHINE CARD ===================== */
+/* ================================================= */
+
+.shine-card {
+  position: relative;
+  border-radius: 16px;
+  padding: 2px;
+  background: linear-gradient(
+    120deg,
+    transparent 35%,
+    rgba(5, 135, 122, 0.9),
+    transparent 65%
+  );
+  background-size: 200% 200%;
+  animation: shine-move 3.5s linear infinite;
+}
+
+.shine-card-inner {
+  border-radius: 14px;
+  background: rgba(255, 255, 255, 0.85);
+  backdrop-filter: blur(12px);
+  padding: 24px;
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.08);
+}
+
+@keyframes shine-move {
+  from {
+    background-position: 200% 0;
+  }
+  to {
+    background-position: -200% 0;
+  }
+}
+
+

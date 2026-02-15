@@ -1,5 +1,4 @@
 import React from "react";
-import { BrowserRouter, Routes, Route, Outlet } from "react-router-dom";
 
 import Navbar from "./components/Navbar";
 import Footer from "./components/Footer";
@@ -11,7 +10,8 @@ import HeadSRL from "./components/HeadSRL";
 import SRLStudentMembers from "./components/SRLStudentMembers";
 import ContactUs1 from "./components/mvpblocks/contact-us-1";
 
-
+// ❌ REMOVE THIS IMPORT
+// import ChromaGrid from "/components/react-bits/ChromaGrid";
 
 export default function App() {
   return (
@@ -22,23 +22,9 @@ export default function App() {
       <Activities />
       <Leaderboard />
       <HeadSRL />
-      <SRLStudentMembers />
+      <SRLStudentMembers /> {/* ChromaGrid lives here */}
       <ContactUs1 />
       <Footer />
     </div>
   );
 }
-
-// export default function App() {
-//   return (
-//     <BrowserRouter>
-//       <Routes>
-//         <Route path="/" element={<Layout />}>
-//           <Route index element={<Home />} />
-//           {/* add a Curator route if you have one */}
-//           {/* <Route path="curators" element={<Curator />} /> */}
-//         </Route>
-//       </Routes>
-//     </BrowserRouter>
-//   );
-// }

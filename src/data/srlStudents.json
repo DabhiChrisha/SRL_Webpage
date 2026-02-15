@@ -6,8 +6,11 @@
     "semester": "4",
     "division": "G",
     "email": "chrishaadabhii0704@gmail.com",
+    "linkedin": "https://www.linkedin.com/in/chrishadabhi/",
+    "photo":"/students/Dabhi Chrisha.JPG",
     "contact_no": "9870094446",
-    "roles": ["Student Member"]
+    "roles": ["Student Member"],
+    "reflection": "Being part of SRL, I've learnt how to work efficiently and with perfection."
   },
   {
     "student_name": "Aayush Viral Pandya",
@@ -16,8 +19,11 @@
     "semester": "4",
     "division": "P",
     "email": "pandyaaayush2006@gmail.com",
+    "linkedin":"https://www.linkedin.com/in/aayush-pandya04/",
+    "photo":"/students/schoolstudent.png",
     "contact_no": "9687041106",
-    "roles": ["Student Member"]
+    "roles": ["Student Member"],
+    "reflection": "SRL transformed how I approach problems. Instead of rushing to solutions, I now focus on structuring the problem, validating assumptions, and documenting outcomes clearly."
   },
   {
     "student_name": "Mahi Parmar",
@@ -26,8 +32,11 @@
     "semester": "4",
     "division": "P",
     "email": "mahiparmar2708@gmail.com",
+    "linkedin":"https://www.linkedin.com/in/mahi-parmar-42a17131a/",
+    "photo":"/students/schoolstudent.png",
     "contact_no": "9998801402",
-    "roles": ["Student Member"]
+    "roles": ["Student Member"],
+    "reflection": "Being part of SRL introduced me to disciplined research practices. Regular discussions and critiques helped me think critically and defend ideas with logic rather than intuition."
   },
   {
     "student_name": "Pragati Varu",
@@ -37,9 +46,13 @@
     "division": "F",
     "batch": "2024-2028",
     "email": "pragativaru23@gmail.com",
+    "linkedin":"https://www.linkedin.com/in/pragati-varu-18474731b/",
+    "photo":"/students/schoolstudent.png",
     "contact_no": "9875122785",
-    "roles": ["Student Member"]
+    "roles": ["Student Member"],
+    "reflection": "Through SRL, I learned that consistent guidance and disciplined effort are key to meaningful growth."
   },
+
   {
     "student_name": "Yash Kumavat",
     "enrollment_no": "24BECE30122",
@@ -48,9 +61,12 @@
     "division": "B",
     "batch": "2024-2028",
     "email": "yashnkumavat2005@gmail.com",
+    "linkedin":"https://www.linkedin.com/in/yash-kumavat-503a6a326/",
+    "photo":"/students/schoolstudent.png",
     "contact_no": "8128575707",
     "member_type": "Head-Appointed",
-    "roles": ["Student Member"]
+    "roles": ["Student Member"],
+    "reflection": "SRL cultivated patience and rigor in my research work. The emphasis on methodology and validation reshaped how I evaluate results and draw conclusions."
   },
 
   {
@@ -61,6 +77,8 @@
     "division": "B",
     "batch": "2022-2026",
     "email": "kandarp.gajjar.460@gmail.com",
+    "linkedin":"https://www.linkedin.com/in/kandarpgajjar/",
+    "photo":"/students/schoolstudent.png",
     "contact_no": "7567600101",
     "member_type": "Head-Appointed",
     "roles": ["Research Assistant", "Student Member"]
@@ -74,6 +92,8 @@
     "division": "J",
     "batch": "2022-2026",
     "email": "nancyp9210@gmail.com",
+    "linkedin":"https://www.linkedin.com/in/xcodenancy/",
+    "photo":"/students/schoolstudent.png",
     "contact_no": "9725673402",
     "member_type": "Head-Appointed",
     "roles": ["Research Assistant", "Student Member"]
@@ -87,9 +107,12 @@
     "division": "B",
     "batch": "2024-2028",
     "email": "gajjarantra03@gmail.com",
+    "linkedin":"https://www.linkedin.com/in/antra-gajjar-957977330/",
+    "photo":"/students/schoolstudent.png",
     "contact_no": "7990912121",
     "member_type": "Head-Appointed",
-    "roles": ["Student Member"]
+    "roles": ["Student Member"],
+    "reflection": "Early exposure to SRL made me more confident in questioning assumptions and justifying decisions. It changed how I learn and apply concepts beyond coursework."
   },
   {
     "student_name": "Rudr Halvadiya",
@@ -99,9 +122,12 @@
     "division": "B",
     "batch": "2024-2028",
     "email": "rudrhalvadiya2000@gmail.com",
+    "linkedin":"https://www.linkedin.com/in/rudr-halvadiya/",
+    "photo":"/students/schoolstudent.png",
     "contact_no": "9427375784",
     "member_type": "Head-Appointed",
-    "roles": ["Student Member"]
+    "roles": ["Student Member"],
+    "reflection": "SRL helped me see research as a structured process rather than trial and error. Peer reviews and mentoring played a major role in shaping my analytical skills."
   },
   {
     "student_name": "Dev Kansara",
@@ -111,9 +137,12 @@
     "division": "B",
     "batch": "2024-2028",
     "email": "kansaradev95@gmail.com",
+    "linkedin":"https://www.linkedin.com/in/dev-kansara-37b37037a/",
+    "photo":"/students/schoolstudent.png",
     "contact_no": "9925669832",
     "member_type": "Peer-Nominated",
-    "roles": ["Student Member"]
+    "roles": ["Student Member"],
+    "reflection": "The biggest change SRL brought was clarity in thinking. It taught me how to break complex research problems into manageable steps and stay consistent through uncertainty."
   },
   {
     "student_name": "Krishna Bhatt",
@@ -123,6 +152,8 @@
     "division": "A",
     "batch": "2023-2027",
     "email": "bhattkrishna0908@gmail.com",
+    "linkedin":"https://www.linkedin.com/in/krishnabhatt2958/",
+    "photo":"/students/schoolstudent.png",
     "contact_no": "6354262335",
     "member_type": "Head-Appointed",
     "roles": ["Student Member"]
@@ -135,6 +166,8 @@
     "division": "A",
     "batch": "2023-2027",
     "email": "zenishadevani@gmail.com",
+    "linkedin":"https://www.linkedin.com/in/zenisha-devani-4aba532b1/",
+    "photo":"/students/schoolstudent.png",
     "contact_no": "6359222727",
     "member_type": "Peer-Nominated",
     "roles": ["Student Member"]
@@ -147,6 +180,8 @@
     "division": "A",
     "batch": "2023-2027",
     "email": "rachitadevda0410@gmail.com",
+    "linkedin":"https://www.linkedin.com/in/rachita-devda-b83834326/",
+    "photo":"/students/schoolstudent.png",
     "contact_no": "9313258627",
     "member_type": "Head-Appointed",
     "roles": ["Student Member"]
@@ -159,6 +194,8 @@
     "division": "A",
     "batch": "2023-2027",
     "email": "jankichitroda8@gmail.com",
+    "linkedin":"https://www.linkedin.com/in/janki-chitroda-66a3782b8/",
+    "photo":"/students/schoolstudent.png",
     "contact_no": "9499676967",
     "member_type": "Head-Appointed",
     "roles": ["Student Member"]
@@ -171,6 +208,8 @@
     "division": "A",
     "batch": "2023-2027",
     "email": "kanksha.buch@gmail.com",
+    "linkedin":"https://www.linkedin.com/in/kanksha-buch-7b17a131b/",
+    "photo":"/students/schoolstudent.png",
     "contact_no": "7203073100",
     "member_type": "Head-Appointed",
     "roles": ["Student Member"]
@@ -183,6 +222,8 @@
     "division": "A",
     "batch": "2023-2027",
     "email": "yashvichavda6@gmail.com",
+    "linkedin":"https://www.linkedin.com/in/yashvi-chavda-b71047287/",
+    "photo":"/students/schoolstudent.png",
     "contact_no": "6356519390",
     "member_type": "Head-Appointed",
     "roles": ["Student Member"]
@@ -195,6 +236,8 @@
     "division": "B",
     "batch": "2023-2027",
     "email": "honeymodha02@gmail.com",
+    "linkedin":"https://www.linkedin.com/in/honey-modha/",
+    "photo":"/students/schoolstudent.png",
     "contact_no": "8141912433",
     "member_type": "General Members",
     "roles": ["Student Member"]
@@ -207,6 +250,8 @@
     "division": "B",
     "batch": "2023-2027",
     "email": "zeelkanudawala@gmail.com",
+    "linkedin":"https://www.linkedin.com/in/zeel-kanudawala-3b81412b5/",
+    "photo":"/students/schoolstudent.png",
     "contact_no": "6355424403",
     "member_type": "Head-Appointed",
     "roles": ["Student Member"]
@@ -219,6 +264,8 @@
     "division": "C",
     "batch": "2023-2027",
     "email": "jainu2426@gmail.com",
+    "linkedin":"https://www.linkedin.com/in/jainee-patel-242006j/",
+    "photo":"/students/schoolstudent.png",
     "contact_no": "7984123552",
     "member_type": "Head-Appointed",
     "roles": ["Student Member"]
@@ -231,6 +278,8 @@
     "division": "C",
     "batch": "2023-2027",
     "email": "bansharipatel6595@gmail.com",
+    "linkedin":"https://www.linkedin.com/in/banshari-patel-b699542b5/",
+    "photo":"/students/schoolstudent.png",
     "contact_no": "9724334964",
     "member_type": "Head-Appointed",
     "roles": ["Student Member"]
@@ -243,6 +292,8 @@
     "division": "C",
     "batch": "2023-2027",
     "email": "charmi.padh030206@gmail.com",
+    "linkedin":"https://www.linkedin.com/in/charmi-padh/",
+    "photo":"/students/schoolstudent.png",
     "contact_no": "7016405750",
     "member_type": "Head-Appointed",
     "roles": ["Student Member"]
@@ -255,6 +306,8 @@
     "division": "F",
     "batch": "2023-2027",
     "email": "premraichura7@gmail.com",
+    "linkedin":"https://www.linkedin.com/in/prem-raichura/",
+    "photo":"/students/schoolstudent.png",
     "contact_no": "9327681649",
     "member_type": "Peer-Nominated",
     "roles": ["Student Member"]
@@ -267,6 +320,8 @@
     "division": "F",
     "batch": "2023-2027",
     "email": "rpthakar35@gmail.com",
+    "linkedin":"https://www.linkedin.com/in/rohan-thakar-609335326/",
+    "photo":"/students/schoolstudent.png",
     "contact_no": "8320846359",
     "member_type": "Peer-Nominated",
     "roles": ["Student Member"]
@@ -279,6 +334,8 @@
     "division": "G",
     "batch": "2023-2027",
     "email": "hetvi0925@gmail.com",
+    "linkedin":"https://www.linkedin.com/in/hetvi-hinsu-4a87aa288/",
+    "photo":"/students/schoolstudent.png",
     "contact_no": "9428086585",
     "member_type": "Peer-Nominated",
     "roles": ["Student Member"]
@@ -291,6 +348,8 @@
     "division": "P",
     "batch": "2023-2027",
     "email": "krishp728@gmail.com",
+    "linkedin":"https://www.linkedin.com/in/krish-patel-24285827b/",
+    "photo":"/students/schoolstudent.png",
     "contact_no": "8780064214",
     "member_type": "Head-Appointed",
     "roles": ["Student Member"]
@@ -303,6 +362,8 @@
     "division": "P",
     "batch": "2023-2027",
     "email": "henypatel26012005@gmail.com",
+    "linkedin":"https://www.linkedin.com/in/heny-patel-22a8b9262/",
+    "photo":"/students/schoolstudent.png",
     "contact_no": "9328211453",
     "member_type": "Peer-Nominated",
     "roles": ["Student Member"]
@@ -315,6 +376,8 @@
     "division": "P",
     "batch": "2023-2027",
     "email": "mihir.rockshi@gmail.com",
+    "linkedin":"",
+    "photo":"/students/schoolstudent.png",
     "contact_no": "9428038999",
     "member_type": "Peer-Nominated",
     "roles": ["Student Member"]
@@ -327,6 +390,8 @@
     "division": "P",
     "batch": "2023-2027",
     "email": "hp926591@gmail.com",
+    "linkedin":"https://www.linkedin.com/in/hemant-pande926591/",
+    "photo":"/students/schoolstudent.png",
     "contact_no": "8780508139",
     "member_type": "Head-Appointed",
     "roles": ["Student Member"]
@@ -339,6 +404,8 @@
     "division": "P",
     "batch": "2023-2027",
     "email": "henitpanchal007@gmail.com",
+    "linkedin":"https://www.linkedin.com/in/henit-panchal-250524274/",
+    "photo":"/students/schoolstudent.png",
     "contact_no": "9016809674",
     "member_type": "Head-Appointed",
     "roles": ["Student Member"]
@@ -351,6 +418,8 @@
     "division": "C",
     "batch": "2022-2026",
     "email": "parva300504@gmail.com",
+    "linkedin":"https://www.linkedin.com/in/parva-kumar/",
+    "photo":"/students/schoolstudent.png",
     "contact_no": "9510493577",
     "member_type": "Peer-Nominated",
     "roles": ["Student Member"]
@@ -363,6 +432,8 @@
     "division": "J",
     "batch": "2022-2026",
     "email": "krutika8114@gmail.com",
+    "linkedin":"https://www.linkedin.com/in/stack-krutika/",
+    "photo":"/students/schoolstudent.png",
     "contact_no": "9624336970",
     "member_type": "Head-Appointed",
     "roles": ["Student Member"]
@@ -375,6 +446,8 @@
     "division": "J",
     "batch": "2022-2026",
     "email": "ridhampatel2k4@gmail.com",
+    "linkedin":"https://www.linkedin.com/in/ridhampatel2k4/",
+    "photo":"/students/schoolstudent.png",
     "contact_no": "8849155025",
     "member_type": "Head-Appointed",
     "roles": ["Student Member"]
@@ -387,8 +460,11 @@
     "division": "-",
     "batch": "2023-2027",
     "email": "23beit54020@vsitr.ac.in",
+    "linkedin":"https://www.linkedin.com/in/jenish-sorathiya-419b042a5/",
+    "photo":"/students/schoolstudent.png",
     "contact_no": "9099158812",
     "member_type": "General Members",
     "roles": ["Student Member"]
   }
+  
 ]

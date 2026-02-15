@@ -68,8 +68,8 @@ export default function Navbar() {
           </div>
 
           <div className="hidden sm:block leading-tight whitespace-nowrap">
-            <div className="text-lg font-extrabold text-[#05877a]">SRL</div>
-            <div className="text-xs text-gray-500">Student Research Lab</div>
+            <div className="text-lg font-extrabold text-[#05877a]">Student Research Lab</div>
+            <div className="text-xs text-gray-500">MMPSRPC, Kadi Sarva Vishwavidyalaya</div>
           </div>
         </a>
 
