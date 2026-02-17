@@ -87,7 +87,7 @@ export default function Activities() {
   }, [index]);
 
   return (
-    <section className="bg-white px-16 pt-20">
+    <section id="activities" className="bg-white px-16 pt-20">
       <h2 className="text-center text-2xl font-bold mb-16">
         Activities
       </h2>

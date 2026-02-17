@@ -13,7 +13,7 @@ import ScrollToTop from "./components/ScrollToTop";
 
 export default function App() {
   return (
-    <div className="relative min-h-screen text-deepgreen overflow-hidden bg-[#f6f9f7]">
+    <div className="relative min-h-screen text-deepgreen bg-[#f6f9f7]">
       {/* Soft radial light (top) */}
       <div className="absolute -top-40 left-1/2 -translate-x-1/2 w-225 h-225 bg-[#d5e3dc]/50 rounded-full blur-3xl"></div>
 
