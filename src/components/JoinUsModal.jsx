@@ -1,5 +1,6 @@
 import { useState } from "react";
 import { X } from "lucide-react";
+import { isSupabaseConfigured, supabase } from "../lib/supabaseClient";
 
 export default function JoinUsModal({ isOpen, onClose }) {
   const [formData, setFormData] = useState({
@@ -10,10 +11,14 @@ export default function JoinUsModal({ isOpen, onClose }) {
     branch: "",
     batch: "",
     contactNumber: "",
-    emailId: ""
+    emailId: "",
+    referralSource: "",
+    referralName: ""
   });
 
   const [submitted, setSubmitted] = useState(false);
+  const [submitError, setSubmitError] = useState("");
+  const [isSubmitting, setIsSubmitting] = useState(false);
 
   const handleChange = (e) => {
     const { name, value } = e.target;
@@ -23,9 +28,27 @@ export default function JoinUsModal({ isOpen, onClose }) {
     }));
   };
 
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
-    console.log("Form Data:", formData);
+    setSubmitError("");
+
+    if (!isSupabaseConfigured) {
+      setSubmitError("Supabase is not configured. Please add your keys.");
+      return;
+    }
+
+    setIsSubmitting(true);
+
+    const { error } = await supabase
+      .from("join_requests")
+      .insert([formData]);
+
+    if (error) {
+      setSubmitError(error.message || "Failed to submit. Please try again.");
+      setIsSubmitting(false);
+      return;
+    }
+
     setSubmitted(true);
 
     // Reset form after 2 seconds
@@ -38,9 +61,12 @@ export default function JoinUsModal({ isOpen, onClose }) {
         branch: "",
         batch: "",
         contactNumber: "",
-        emailId: ""
+        emailId: "",
+        referralSource: "",
+        referralName: ""
       });
       setSubmitted(false);
+      setIsSubmitting(false);
       onClose();
     }, 2000);
   };
@@ -142,6 +168,15 @@ export default function JoinUsModal({ isOpen, onClose }) {
                     <option value="B">Division B</option>
                     <option value="C">Division C</option>
                     <option value="D">Division D</option>
+                    <option value="E">Division E</option>
+                    <option value="F">Division F</option>
+                    <option value="G">Division G</option>
+                    <option value="I">Division I</option>
+                    <option value="J">Division J</option>
+                    <option value="K">Division K</option>
+                    <option value="EC">Division EC</option>
+                    <option value="P">Division P</option>
+                    <option value="Q">Division Q</option>
                   </select>
                 </div>
               </div>
@@ -161,6 +196,7 @@ export default function JoinUsModal({ isOpen, onClose }) {
                   >
                     <option value="">Select Branch</option>
                     <option value="CSE">Computer Science Engineering</option>
+                    <option value="CE">Computer Engineering</option>
                     <option value="IT">Information Technology</option>
                     <option value="ECE">Electronics & Communication Engineering</option>
                     <option value="EEE">Electrical Engineering</option>
@@ -218,13 +254,65 @@ export default function JoinUsModal({ isOpen, onClose }) {
                 </div>
               </div>
 
+              {/* Referral Source */}
+              <div>
+                <label className="block text-sm font-semibold text-gray-700 mb-2">
+                  How did you hear about SRL? <span className="text-red-500">*</span>
+                </label>
+                <select
+                  name="referralSource"
+                  value={formData.referralSource}
+                  onChange={handleChange}
+                  required
+                  className="w-full px-4 py-2.5 border border-gray-300 rounded-lg focus:outline-none focus:border-[#05877a] focus:ring-2 focus:ring-[#05877a]/20 transition-all"
+                >
+                  <option value="">Select an option</option>
+                  <option value="social-media">Social Media</option>
+                  <option value="friend">Friend</option>
+                  <option value="fellow-student">Fellow Student</option>
+                  <option value="faculty">Faculty</option>
+                  <option value="srl-member">SRL Member</option>
+                  <option value="other">Other</option>
+                </select>
+              </div>
+
+              {[
+                "friend",
+                "fellow-student",
+                "faculty",
+                "srl-member",
+                "other"
+              ].includes(formData.referralSource) && (
+                <div>
+                  <label className="block text-sm font-semibold text-gray-700 mb-2">
+                    Please provide their name <span className="text-red-500">*</span>
+                  </label>
+                  <input
+                    type="text"
+                    name="referralName"
+                    value={formData.referralName}
+                    onChange={handleChange}
+                    required
+                    className="w-full px-4 py-2.5 border border-gray-300 rounded-lg focus:outline-none focus:border-[#05877a] focus:ring-2 focus:ring-[#05877a]/20 transition-all"
+                    placeholder="Enter name"
+                  />
+                </div>
+              )}
+
+              {submitError && (
+                <div className="rounded-lg border border-red-200 bg-red-50 px-4 py-3 text-sm text-red-700">
+                  {submitError}
+                </div>
+              )}
+
               {/* Submit Button */}
               <div className="flex gap-4 pt-4">
                 <button
                   type="submit"
-                  className="flex-1 px-6 py-3 bg-[#05877a] text-white font-semibold rounded-lg hover:bg-[#046b66] transition-colors duration-300 shadow-md hover:shadow-lg"
+                  disabled={isSubmitting}
+                  className="flex-1 px-6 py-3 bg-[#05877a] text-white font-semibold rounded-lg hover:bg-[#046b66] transition-colors duration-300 shadow-md hover:shadow-lg disabled:opacity-70 disabled:cursor-not-allowed"
                 >
-                  Submit
+                  {isSubmitting ? "Submitting..." : "Submit"}
                 </button>
                 <button
                   type="button"

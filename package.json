@@ -9,6 +9,7 @@
     "preview": "vite preview"
   },
   "dependencies": {
+    "@supabase/supabase-js": "^2.96.0",
     "@tsparticles/react": "^3.0.0",
     "@tsparticles/slim": "^3.9.1",
     "clsx": "^2.1.1",
@@ -19,6 +20,7 @@
     "react": "^18.3.1",
     "react-dom": "^18.3.1",
     "react-router-dom": "^6.23.0",
+    "supabase": "^2.76.9",
     "tailwind-merge": "^3.4.0"
   },
   "devDependencies": {

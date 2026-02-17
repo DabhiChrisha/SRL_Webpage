@@ -1,10 +1,46 @@
+/* Global reset + box-sizing */
+html, body, #root {
+  height: 100%;
+  margin: 0;
+  padding: 0;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  box-sizing: border-box;
+}
+*, *::before, *::after { box-sizing: inherit; }
+
+/* Page container (responsive) */
 #root {
-  max-width: 0 auto;
+  max-width: 1200px; /* constrain on very large screens */
+  width: 100%;
   margin: 0 auto;
-  padding: 2rem;
+  padding: 1rem; /* mobile-first padding */
   text-align: center;
 }
+@media (min-width: 640px) {
+  #root { padding: 1.25rem; }
+}
+@media (min-width: 1024px) {
+  #root { padding: 2rem; }
+}
 
+/* Ensure images and svgs scale nicely */
+img, svg, picture {
+  max-width: 100%;
+  height: auto;
+  display: block;
+}
+
+/* Prevent sticky header from overlapping sections when using anchor links */
+/* Add this class to section wrappers (or rely on global section elements) */
+.section, section {
+  scroll-margin-top: 4.5rem; /* safe default for navbar height */
+}
+@media (min-width: 1024px) {
+  .section, section { scroll-margin-top: 5.25rem; }
+}
+
+/* Logo styles (kept from original) */
 .logo {
   height: 6em;
   padding: 1.5em;
@@ -19,12 +55,8 @@
 }
 
 @keyframes logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+  from { transform: rotate(0deg); }
+  to { transform: rotate(360deg); }
 }
 
 @media (prefers-reduced-motion: no-preference) {
@@ -33,10 +65,26 @@
   }
 }
 
-.card {
-  padding: 2em;
+/* Card + misc (kept) */
+.card { padding: 2em; }
+.read-the-docs { color: #888; }
+
+/* Minor helpers for responsive layout */
+.container-center {
+  width: 100%;
+  max-width: 1200px;
+  margin: 0 auto;
+  padding-left: 1rem;
+  padding-right: 1rem;
 }
 
-.read-the-docs {
-  color: #888;
+/* Make buttons and interactive elements scale on smaller screens */
+button, .btn {
+  -webkit-tap-highlight-color: transparent;
 }
+
+/* Ensure the navbar remains sticky (make only .site-navbar sticky, not every header/nav) */
+.site-navbar { position: sticky; top: 0; z-index: 50; }
+
+/* Small accessibility improvement: focus outlines */
+:focus { outline: 3px solid rgba(5,135,122,0.18); outline-offset: 2px; }

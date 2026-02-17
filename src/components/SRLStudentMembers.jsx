@@ -18,7 +18,7 @@ export default function SRLStudentMembers() {
   }, []);
 
   return (
-    <section className="py-32 bg-[#faf1d5]">
+    <section id="srl-student-members" className="py-32 bg-[#faf1d5] scroll-mt-24">
       <div className="max-w-7xl mx-auto px-6">
         <ChromaGrid
           items={chromaItems}
