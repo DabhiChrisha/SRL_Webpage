@@ -2,6 +2,7 @@ import { useEffect, useState } from "react";
 import { Menu, X } from "lucide-react";
 import SRLAppointmentButton from "./SRLAppointmentButton";
 import JoinUsButton from "./JoinUsButton";
+import Dock from "./react-bits/Dock";
 
 import srlLogo from "../assets/SRL Logo.png";
 import ksvLogo from "../assets/KSV Logo.png";
@@ -41,18 +42,23 @@ export default function Navbar() {
     handleScroll();
 
     return () => window.removeEventListener("scroll", handleScroll);
-  }, []);
+  }, [navItems]);
+
+  const handleNavigateFromDock = (id) => {
+    const el = document.getElementById(id);
+    if (el) el.scrollIntoView({ behavior: "smooth" });
+    setIsOpen(false);
+  };
 
   return (
-    <nav
-      className={`
-        sticky top-0 z-50
+    <>
+    <nav className={`site-navbar
+        sticky top-0 inset-x-0 z-50
         transition-all duration-300
         ${scrolled
           ? "bg-white/80 backdrop-blur-md border-b border-gray-200 shadow-sm"
           : "bg-white"}
-      `}
-    >
+      `}>
       <div className="max-w-7xl mx-auto px-6 h-16 flex items-center justify-between gap-6">
 
         {/* ================= SRL BRAND ================= */}
@@ -155,5 +161,9 @@ export default function Navbar() {
         </div>
       )}
     </nav>
+
+    {/* Mobile bottom dock */}
+    <Dock navItems={navItems} onNavigate={handleNavigateFromDock} />
+    </>
   );
 }
