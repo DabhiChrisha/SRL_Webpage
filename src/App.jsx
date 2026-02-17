@@ -5,6 +5,7 @@ import Footer from "./components/Footer";
 import Hero from "./components/Hero";
 import VisionaryCharter from "./components/VisionaryCharter";
 import Activities from "./components/Activities";
+import Achievements from "./components/Achievements";
 import Leaderboard from "./components/Leaderboard";
 import HeadSRL from "./components/HeadSRL";
 import SRLStudentMembers from "./components/SRLStudentMembers";
@@ -29,6 +30,7 @@ export default function App() {
         <Hero />
         <VisionaryCharter />
         <Activities />
+        <Achievements />
         <Leaderboard />
         <HeadSRL />
         <SRLStudentMembers />

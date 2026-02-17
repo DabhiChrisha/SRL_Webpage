@@ -172,7 +172,7 @@ export default function Leaderboard() {
       <style>{styles}</style>
 
       <section id="students-leaderboard" className="py-16 px-6">
-        <h2 className="text-center text-4xl font-bold mb-4 animate-slide-in bg-gradient-to-r from-[#05877a] to-[#04725f] bg-clip-text text-transparent">
+        <h2 className="text-center text-4xl font-bold mb-4 animate-slide-in bg-linear-to-r from-[#05877a] to-[#04725f] bg-clip-text text-transparent">
           Students' Leaderboard
         </h2>
         <p className="text-center text-gray-600 mb-12 animate-slide-in">
@@ -198,7 +198,7 @@ export default function Leaderboard() {
 
               <div
                 className={`rounded-full overflow-hidden border-4 border-[#05877a] shadow-lg 
-                bg-gradient-to-br from-[#05877a] to-[#04725f] 
+                bg-linear-to-br from-[#05877a] to-[#04725f] 
                 flex items-center justify-center circle-avatar
                 ${index === 1 ? "w-48 h-48" : "w-32 h-32"}`}
               >
@@ -244,7 +244,7 @@ export default function Leaderboard() {
                   className="flex items-center gap-4 performer-row px-4 py-3"
                   style={{ animationDelay: `${index * 0.1}s` }}
                 >
-                  <span className="rank-badge bg-gradient-to-br from-[#05877a] to-[#04725f] text-white rounded-full w-7 h-7 flex items-center justify-center font-bold text-xs shadow-md">
+                  <span className="rank-badge bg-linear-to-br from-[#05877a] to-[#04725f] text-white rounded-full w-7 h-7 flex items-center justify-center font-bold text-xs shadow-md">
                     {student.rank}
                   </span>
 
@@ -255,7 +255,7 @@ export default function Leaderboard() {
                   <div className="flex-1">
                     <div className="bg-gray-100 rounded-full h-9 overflow-hidden">
                       <div
-                        className="progress-bar bg-gradient-to-r from-[#05877a] to-[#04725f] h-full rounded-full flex items-center justify-end pr-3 font-bold text-white"
+                        className="progress-bar bg-linear-to-r from-[#05877a] to-[#04725f] h-full rounded-full flex items-center justify-end pr-3 font-bold text-white"
                         style={{
                           width: `${percentage}%`,
                           "--bar-width": `${percentage}%`
