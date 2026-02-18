@@ -10,10 +10,10 @@ export default function SRLStudentMembers() {
       image: s.photo,
       title: s.student_name,
       subtitle: `${s.department} • Semester ${s.semester}`,
-      email: s.email,          // ✅ REQUIRED
-      linkedin: s.linkedin,    // ✅ REQUIRED
-      reflection: s.reflection,// ✅ REQUIRED
-      gradient: "linear-gradient(160deg,#064E3B,#000)",
+      email: s.email || "",
+      linkedin: s.linkedin || "",
+      reflection: s.reflection || "",
+      gradient: "linear-gradient(160deg,#fbe8c1,#167d8d)",
     }));
   }, []);
 
@@ -40,7 +40,7 @@ export default function SRLStudentMembers() {
               {activeStudent.title}
             </h3>
             <p className="italic text-gray-700">
-              “{activeStudent.reflection}”
+              "{activeStudent.reflection}"
             </p>
           </div>
         </div>
