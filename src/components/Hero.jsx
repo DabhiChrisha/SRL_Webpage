@@ -1,9 +1,10 @@
 import { useState, useEffect } from "react";
 
 // 👉 Replace with your actual images
-import slide1 from "../assets/hero1.jpeg";
+import slide1 from "../assets/hero.png";
 import slide2 from "../assets/hero2.jpeg";
 import slide3 from "../assets/hero3.jpeg";
+import srlLogo from "../assets/SRL Logo.png";
 // import slide4 from "../assets/hero4.jpg";
 // import slide5 from "../assets/hero5.jpg";
 
@@ -13,16 +14,17 @@ export default function Hero() {
   const slides = [
     {
       image: slide1,
-      align: "items-start justify-end text-right pt-28", // ✅ TOP RIGHT
+      // Mobile: Center | Desktop: Top Right
+      align: "justify-center items-center text-center md:justify-start md:items-end md:text-right md:pt-32",
     },
     {
       image: slide2,
       align: "items-center justify-center text-center",
     },
-     {
-       image: slide3,
-       align: "items-center justify-center text-center",
-     },
+    {
+      image: slide3,
+      align: "items-center justify-center text-center",
+    },
     // {
     //   image: slide4,
     //   align: "items-center justify-center text-center",
@@ -50,9 +52,8 @@ export default function Hero() {
           key={index}
           src={slide.image}
           alt="hero"
-          className={`absolute inset-0 w-full h-full object-cover transition-opacity duration-700 ${
-            index === current ? "opacity-100" : "opacity-0"
-          }`}
+          className={`absolute inset-0 w-full h-full object-cover transition-opacity duration-700 ${index === current ? "opacity-100" : "opacity-0"
+            }`}
         />
       ))}
 
@@ -61,16 +62,25 @@ export default function Hero() {
 
       {/* ===== TEXT CONTAINER ===== */}
       <div
-        className={`absolute inset-0 flex px-6 md:px-16 ${slides[current].align}`}
+        className={`absolute inset-0 flex flex-col px-6 md:px-16 ${slides[current].align} transition-all duration-700`}
       >
-        <div className="max-w-2xl">
+        <div className="max-w-3xl w-full">
+
+          {/* LOGO on subsequent slides (index > 0) */}
+          {current > 0 && (
+            <img
+              src={srlLogo}
+              alt="SRL Logo"
+              className="w-16 md:w-24 mx-auto mb-4 drop-shadow-lg animate-fade-up"
+            />
+          )}
 
           {/* 👉 YOUR EXACT TEXT STYLE */}
-          <h1 className="text-white text-5xl md:text-7xl font-semibold tracking-tight drop-shadow-lg">
+          <h1 className="text-white font-merriweather text-4xl md:text-6xl lg:text-7xl font-bold tracking-tight drop-shadow-lg leading-tight">
             Students Research Lab
           </h1>
 
-          <p className="text-white/90 text-lg md:text-xl drop-shadow mt-4">
+          <p className="text-white/90 font-libre text-base md:text-xl drop-shadow mt-4 md:mt-6 leading-relaxed">
             Fostering a disciplined research culture, consistency in academic
             practice, and excellence through collaborative scholarly engagement.
           </p>
@@ -84,9 +94,8 @@ export default function Hero() {
           <button
             key={index}
             onClick={() => setCurrent(index)}
-            className={`w-3 h-3 rounded-full transition ${
-              current === index ? "bg-white" : "bg-white/40"
-            }`}
+            className={`w-3 h-3 rounded-full transition ${current === index ? "bg-white" : "bg-white/40"
+              }`}
           />
         ))}
       </div>

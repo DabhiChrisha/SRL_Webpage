@@ -523,159 +523,157 @@ export default function Leaderboard() {
 
           {/* TOP 3 */}
           <div className="flex justify-center gap-12 mb-16 flex-wrap items-end">
-          {topStudents.map((student, index) => (
-            <div
-              key={student.rank}
-              className={`flex flex-col items-center top-student-card relative group`}
-              style={{ animationDelay: `${index * 0.2}s` }}
-            >
-              {/* Rank Medal */}
-              <div className="mb-4 text-sm font-bold text-[#05877a]">Rank #{student.rank}</div>
-
+            {topStudents.map((student, index) => (
               <div
-                className={`rounded-full overflow-hidden 
-                flex items-center justify-center circle-avatar relative border-4 border-[#05877a] ${
-                  index === 1 ? "w-56 h-56" : "w-32 h-32"
-                }`}
+                key={student.rank}
+                className={`flex flex-col items-center top-student-card relative group`}
+                style={{ animationDelay: `${index * 0.2}s` }}
               >
-                <img 
-                  src={student.photo} 
-                  alt={student.name}
-                  className="w-full h-full object-cover"
-                  onError={(e) => {
-                    e.target.style.display = 'none';
-                    e.target.parentElement.innerHTML = `<span class="text-white font-bold ${index === 1 ? 'text-7xl' : 'text-5xl'}">${student.name.charAt(0).toUpperCase()}</span>`;
-                  }}
-                />
-                {/* Points Overlay */}
-                <div className="points-overlay rounded-full">
-                  <span className="points-text">{student.points} pts</span>
-                </div>
-              </div>
+                {/* Rank Medal */}
+                <div className="mb-4 text-sm font-bold text-[#05877a]">Rank #{student.rank}</div>
 
-              <h3
-                className={`mt-8 font-bold text-center student-name ${
-                  index === 1 ? "text-2xl" : "text-xl"
-                }`}
-              >
-                {student.name}
-              </h3>
-              <p className="text-gray-500 text-sm mt-2 font-medium">
-                {student.area}
-              </p>
-            </div>
-          ))}
-        </div>
-
-        {/* OTHER STUDENTS */}
-        <div className="max-w-4xl mx-auto mt-16">
-          <div className="text-center mb-12">
-            <h3 className="text-3xl md:text-4xl font-bold text-gray-900 mb-2">
-              🌟 Top Performers
-            </h3>
-            <p className="text-gray-600">Ranked by achievement and contribution</p>
-          </div>
-
-          <div className="space-y-3">
-            {otherStudents.slice(0, displayCount).map((student, index) => {
-              const percentage = student.points;
-
-              return (
                 <div
-                  key={student.rank}
-                  className="flex items-center gap-4 performer-row px-5 py-4 group"
-                  style={{ animationDelay: `${index * 0.1}s` }}
+                  className={`rounded-full overflow-hidden 
+                flex items-center justify-center circle-avatar relative border-4 border-[#05877a] ${index === 1 ? "w-56 h-56" : "w-32 h-32"
+                    }`}
                 >
-                  <span className="rank-badge bg-gradient-to-br from-[#05877a] to-[#04725f] text-white rounded-full w-10 h-10 flex items-center justify-center font-bold text-sm flex-shrink-0">
-                    {student.rank}
-                  </span>
-
-                  <img 
+                  <img
                     src={student.photo}
                     alt={student.name}
-                    className="student-photo w-12 h-12 rounded-full object-cover flex-shrink-0"
+                    className="w-full h-full object-cover"
                     onError={(e) => {
                       e.target.style.display = 'none';
+                      e.target.parentElement.innerHTML = `<span class="text-white font-bold ${index === 1 ? 'text-7xl' : 'text-5xl'}">${student.name.charAt(0).toUpperCase()}</span>`;
                     }}
                   />
-
-                  <div className="flex-1 min-w-0">
-                    <h4 className="font-semibold text-gray-800 truncate text-sm md:text-base">
-                      {student.name}
-                    </h4>
-                    <p className="text-xs text-gray-500">{student.area}</p>
-                  </div>
-
-                  <div className="flex-1 min-w-[120px]">
-                    <div className="bg-gray-200 rounded-full h-8 overflow-hidden shadow-inner border border-gray-300">
-                      <div
-                        className="progress-bar bg-gradient-to-r from-[#05877a] to-[#04725f] h-full rounded-full flex items-center justify-end pr-3 font-bold text-white text-xs transition-all duration-300"
-                        style={{
-                          width: `${percentage}%`,
-                          "--bar-width": `${percentage}%`
-                        }}
-                      >
-                        {percentage > 20 && student.points}
-                      </div>
-                    </div>
-                  </div>
-
-                  <div className="w-20 text-right flex-shrink-0">
-                    <p className="text-[#05877a] font-bold text-sm">
-                      {student.points} pts
-                    </p>
+                  {/* Points Overlay */}
+                  <div className="points-overlay rounded-full">
+                    <span className="points-text">{student.points} pts</span>
                   </div>
                 </div>
-              );
-            })}
 
-            {displayCount < otherStudents.length && !isCollapsing && (
-              <button
-                onClick={() => {
-                  const newCount = Math.min(displayCount + 10, otherStudents.length);
-                  setDisplayCount(newCount);
-                  if (newCount >= otherStudents.length) {
-                    setIsCollapsing(true);
-                  }
-                  setTimeout(() => {
-                    window.scrollBy({ top: 300, behavior: 'smooth' });
-                  }, 100);
-                }}
-                className="w-full py-6 flex flex-col items-center justify-center gap-2 text-center hover:bg-gray-50 transition-colors duration-300 rounded-lg group cursor-pointer"
-              >
-                <span className="text-[#05877a] font-semibold text-lg group-hover:text-[#04725f] transition-colors">
-                  See more
-                </span>
-                <svg className="w-4 h-4 text-[#05877a]/60 group-hover:text-[#05877a] transition-colors transform group-hover:translate-y-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 14l-7 7m0 0l-7-7m7 7V3" />
-                </svg>
-              </button>
-            )}
-
-            {(displayCount >= otherStudents.length || isCollapsing) && displayCount > 7 && (
-              <button
-                onClick={() => {
-                  const newCount = displayCount >= otherStudents.length ? displayCount - 5 : Math.max(7, displayCount - 10);
-                  setDisplayCount(newCount);
-                  if (newCount <= 7) {
-                    setIsCollapsing(false);
-                  }
-                  setTimeout(() => {
-                    window.scrollBy({ top: -300, behavior: 'smooth' });
-                  }, 100);
-                }}
-                className="w-full py-6 flex flex-col items-center justify-center gap-2 text-center hover:bg-gray-50 transition-colors duration-300 rounded-lg group cursor-pointer"
-              >
-                <span className="text-[#05877a] font-semibold text-lg group-hover:text-[#04725f] transition-colors">
-                  See less
-                </span>
-                <svg className="w-4 h-4 text-[#05877a]/60 group-hover:text-[#05877a] transition-colors transform group-hover:-translate-y-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 10l7-7m0 0l7 7m-7-7v18" />
-                </svg>
-              </button>
-            )}
+                <h3
+                  className={`mt-8 font-bold text-center student-name ${index === 1 ? "text-2xl" : "text-xl"
+                    }`}
+                >
+                  {student.name}
+                </h3>
+                <p className="text-gray-500 text-sm mt-2 font-medium">
+                  {student.area}
+                </p>
+              </div>
+            ))}
           </div>
-        </div>
+
+          {/* OTHER STUDENTS */}
+          <div className="max-w-4xl mx-auto mt-16">
+            <div className="text-center mb-12">
+              <h3 className="text-3xl md:text-4xl font-bold text-gray-900 mb-2">
+                🌟 Top Performers
+              </h3>
+              <p className="text-gray-600">Ranked by achievement and contribution</p>
+            </div>
+
+            <div className="space-y-3">
+              {otherStudents.slice(0, displayCount).map((student, index) => {
+                const percentage = student.points;
+
+                return (
+                  <div
+                    key={student.rank}
+                    className="flex items-center gap-4 performer-row px-5 py-4 group"
+                    style={{ animationDelay: `${index * 0.1}s` }}
+                  >
+                    <span className="rank-badge bg-gradient-to-br from-[#05877a] to-[#04725f] text-white rounded-full w-10 h-10 flex items-center justify-center font-bold text-sm flex-shrink-0">
+                      {student.rank}
+                    </span>
+
+                    <img
+                      src={student.photo}
+                      alt={student.name}
+                      className="student-photo w-12 h-12 rounded-full object-cover flex-shrink-0"
+                      onError={(e) => {
+                        e.target.style.display = 'none';
+                      }}
+                    />
+
+                    <div className="flex-1 min-w-0">
+                      <h4 className="font-semibold text-gray-800 truncate text-sm md:text-base">
+                        {student.name}
+                      </h4>
+                      <p className="text-xs text-gray-500">{student.area}</p>
+                    </div>
+
+                    <div className="flex-1 min-w-[120px]">
+                      <div className="bg-gray-200 rounded-full h-8 overflow-hidden shadow-inner border border-gray-300">
+                        <div
+                          className="progress-bar bg-gradient-to-r from-[#05877a] to-[#04725f] h-full rounded-full flex items-center justify-end pr-3 font-bold text-white text-xs transition-all duration-300"
+                          style={{
+                            width: `${percentage}%`,
+                            "--bar-width": `${percentage}%`
+                          }}
+                        >
+                          {percentage > 20 && student.points}
+                        </div>
+                      </div>
+                    </div>
+
+                    <div className="w-20 text-right flex-shrink-0">
+                      <p className="text-[#05877a] font-bold text-sm">
+                        {student.points} pts
+                      </p>
+                    </div>
+                  </div>
+                );
+              })}
+
+              {displayCount < otherStudents.length && !isCollapsing && (
+                <button
+                  onClick={() => {
+                    const newCount = Math.min(displayCount + 10, otherStudents.length);
+                    setDisplayCount(newCount);
+                    if (newCount >= otherStudents.length) {
+                      setIsCollapsing(true);
+                    }
+                    setTimeout(() => {
+                      window.scrollBy({ top: 300, behavior: 'smooth' });
+                    }, 100);
+                  }}
+                  className="w-full py-6 flex flex-col items-center justify-center gap-2 text-center hover:bg-gray-50 transition-colors duration-300 rounded-lg group cursor-pointer"
+                >
+                  <span className="text-[#05877a] font-semibold text-lg group-hover:text-[#04725f] transition-colors">
+                    See more
+                  </span>
+                  <svg className="w-4 h-4 text-[#05877a]/60 group-hover:text-[#05877a] transition-colors transform group-hover:translate-y-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 14l-7 7m0 0l-7-7m7 7V3" />
+                  </svg>
+                </button>
+              )}
+
+              {(displayCount >= otherStudents.length || isCollapsing) && displayCount > 7 && (
+                <button
+                  onClick={() => {
+                    const newCount = displayCount >= otherStudents.length ? displayCount - 5 : Math.max(7, displayCount - 10);
+                    setDisplayCount(newCount);
+                    if (newCount <= 7) {
+                      setIsCollapsing(false);
+                    }
+                    setTimeout(() => {
+                      window.scrollBy({ top: -300, behavior: 'smooth' });
+                    }, 100);
+                  }}
+                  className="w-full py-6 flex flex-col items-center justify-center gap-2 text-center hover:bg-gray-50 transition-colors duration-300 rounded-lg group cursor-pointer"
+                >
+                  <span className="text-[#05877a] font-semibold text-lg group-hover:text-[#04725f] transition-colors">
+                    See less
+                  </span>
+                  <svg className="w-4 h-4 text-[#05877a]/60 group-hover:text-[#05877a] transition-colors transform group-hover:-translate-y-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 10l7-7m0 0l7 7m-7-7v18" />
+                  </svg>
+                </button>
+              )}
+            </div>
+          </div>
         </div>
       </section>
     </>

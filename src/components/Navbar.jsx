@@ -11,7 +11,7 @@ export default function Navbar() {
   const [activeSection, setActiveSection] = useState("");
   const [scrolled, setScrolled] = useState(false);
 
-    const navItems = [
+  const navItems = [
     { label: "Visionary Charter", id: "visionary-charter" },
     { label: "Activities", id: "activities" },
     { label: "Achievements", id: "achievements" },
@@ -63,16 +63,24 @@ export default function Navbar() {
       <div className="w-full mr-3 px-6 h-20 flex items-center justify-start gap-6">
 
         {/* ================= SRL BRAND ================= */}
-        <a href="#top" className="flex items-center gap-2 sm:gap-3 shrink-0">
-              <div className="flex items-center justify-center">
-                <div className="w-12 h-12 sm:w-16 sm:h-16 rounded-full bg-[#fff6e3] drop-shadow-md flex items-center justify-center">
-                <img src={srlLogo} alt="SRL Logo" className="w-10 h-10 sm:w-14 sm:h-14" />
-                </div>
-              </div>
+        <a
+          href="#top"
+          className="flex items-center gap-2 sm:gap-3 shrink-0"
+          onClick={(e) => {
+            e.preventDefault();
+            window.scrollTo({ top: 0, behavior: "smooth" });
+            setActiveSection("");
+          }}
+        >
+          <div className="flex items-center justify-center">
+            <div className="w-12 h-12 sm:w-16 sm:h-16 rounded-full bg-[#fff6e3] drop-shadow-md flex items-center justify-center">
+              <img src={srlLogo} alt="SRL Logo" className="w-10 h-10 sm:w-14 sm:h-14" />
+            </div>
+          </div>
 
           <div className="block leading-none whitespace-nowrap">
-            <div className="text-xs sm:text-sm md:text-lg font-extrabold text-[#05877a]">Student Research Lab</div>
-            <div className="text-xs text-gray-500">MMPSRPC, KSV</div>
+            <div className="text-xs sm:text-sm md:text-lg font-extrabold text-[#05877a]">Students Research Lab </div>
+            <div className="text-xs text-gray-500">MMPSRPC, Kadi Sarva Vishwavidyalaya</div>
           </div>
         </a>
 
@@ -123,15 +131,15 @@ export default function Navbar() {
             <JoinUsButton />
             <SRLAppointmentButton />
           </div>
-          
-                    <div className="hidden lg:flex items-center gap-4 border-l border-gray-300 pl-5">
+
+          <div className="hidden lg:flex items-center gap-4 border-l border-gray-300 pl-5">
             <a href="https://www.svkm.ac.in/" target="_blank" rel="noopener noreferrer" className="transition-transform hover:scale-110">
               <img src={svkmLogo} alt="SVKM Logo" className="h-12 drop-shadow-md" />
             </a>
             <a href="https://www.ksv.ac.in/" target="_blank" rel="noopener noreferrer" className="transition-transform hover:scale-110">
               <img src={ksvLogo} alt="KSV Logo" className="h-12 drop-shadow-md" />
             </a>
-                        <a href="https://www.mmpsrpc.in/" target="_blank" rel="noopener noreferrer" className="cursor-pointer transition-transform hover:scale-110">
+            <a href="https://www.mmpsrpc.in/" target="_blank" rel="noopener noreferrer" className="cursor-pointer transition-transform hover:scale-110">
               <img src={mmpsrpcLogo} alt="MMPSRPC Logo" className="h-12 drop-shadow-md" />
             </a>
           </div>

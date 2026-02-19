@@ -10,6 +10,7 @@
   },
   "dependencies": {
     "@dataconnect/generated": "file:src/dataconnect-generated",
+    "@gsap/react": "^2.1.2",
     "@supabase/supabase-js": "^2.96.0",
     "@tsparticles/react": "^3.0.0",
     "@tsparticles/slim": "^3.9.1",
@@ -19,6 +20,8 @@
     "framer-motion": "^12.23.26",
     "gsap": "^3.14.2",
     "lucide-react": "^0.562.0",
+    "motion": "^12.34.2",
+    "ogl": "^1.0.11",
     "react": "^18.3.1",
     "react-dom": "^18.3.1",
     "react-router-dom": "^6.23.0",

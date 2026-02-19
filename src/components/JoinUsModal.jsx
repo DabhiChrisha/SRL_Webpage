@@ -50,7 +50,7 @@ export default function JoinUsModal({ isOpen, onClose }) {
   return (
     <div className="fixed inset-0 z-50 flex items-center justify-center bg-black/50 backdrop-blur-sm">
       <div className="relative w-full max-w-2xl mx-4 bg-white rounded-lg shadow-2xl p-8 animate-in fade-in duration-300">
-        
+
         {/* Close Button */}
         <button
           onClick={onClose}
@@ -65,7 +65,7 @@ export default function JoinUsModal({ isOpen, onClose }) {
               Join SRL
             </h2>
             <p className="text-gray-600 mb-6">
-              Fill out the form to join the Student Research Lab
+              Fill out the form to join the Students Research Lab
             </p>
 
             <form onSubmit={handleSubmit} className="space-y-6">

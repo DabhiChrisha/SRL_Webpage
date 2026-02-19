@@ -44,7 +44,7 @@
 //                 {/* Text fallback / identity */}
 //                 <div className="flex flex-col text-left">
 //                   <span className="text-sm font-semibold text-amber-100 leading-none">
-//                     Student Research Lab
+//                     Students Research Lab 
 //                   </span>
 //                   <span className="text-xs tracking-wide text-amber-200">
 //                     MMPSRPC, Kadi Sarva Vishwavidyalaya
@@ -95,9 +95,9 @@
 //       >
 //         <div className="max-w-3xl text-center">
 //           <h1 className="text-4xl md:text-5xl font-semibold text-emerald-900 mb-4">
-//             Student Research Lab
+//             Students Research Lab 
 //           </h1>
-//           <p className="text-lg text-emerald-800 mb-3">MMPSRPC, KSV</p>
+//           <p className="text-lg text-emerald-800 mb-3">MMPSRPC, Kadi Sarva Vishwavidyalaya </p>
 //           <p className="text-gray-700 leading-relaxed">
 //             A disciplined academic ecosystem fostering research culture,
 //             consistency, and sustained pursuit of academic excellence.
@@ -278,7 +278,7 @@
 //       {/* ================= Footer ================= */}
 //       <footer className="bg-emerald-900 py-6">
 //         <p className="text-center text-amber-100 text-sm">
-//           © Student Research Lab – MMPSRPC, KSV
+//           © Students Research Lab  – MMPSRPC, Kadi Sarva Vishwavidyalaya 
 //         </p>
 //       </footer>
 //     </div>

@@ -1,6 +1,8 @@
 @import "tailwindcss";
 
-html, body {
+html,
+body {
+  font-family: "Rubik", sans-serif;
   scroll-behavior: smooth;
   width: 100%;
   min-height: 100vh;
@@ -8,19 +10,40 @@ html, body {
   padding: 0;
   overflow-x: hidden;
 }
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  font-family: ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans", sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
+}
+
+.playfair-display {
+  font-family: "Playfair Display", serif;
+  font-optical-sizing: auto;
+  font-weight: 800;
+  font-style: normal;
+}
+
+
 @keyframes slow-spin {
   from {
     transform: rotate(0deg);
   }
+
   to {
     transform: rotate(360deg);
   }
 }
+
 @keyframes fade-up {
   from {
     opacity: 0;
     transform: translateY(24px);
   }
+
   to {
     opacity: 1;
     transform: translateY(0);
@@ -30,10 +53,14 @@ html, body {
 .animate-fade-up {
   animation: fade-up 0.8s ease-out forwards;
 }
+
 @keyframes soft-pulse {
-  0%, 100% {
+
+  0%,
+  100% {
     opacity: 0.35;
   }
+
   50% {
     opacity: 0.6;
   }
@@ -49,6 +76,7 @@ html, body {
     opacity: 0.6;
     transform: scale(1) translateY(0);
   }
+
   100% {
     opacity: 0;
     transform: scale(0.4) translateY(-8px);
@@ -57,7 +85,8 @@ html, body {
 
 .sparkle {
   position: absolute;
-  width: 4px;              /* smaller = subtle */
+  width: 4px;
+  /* smaller = subtle */
   height: 4px;
   background-color: rgba(255, 255, 255, 0.7);
   border-radius: 9999px;
@@ -71,6 +100,7 @@ html, body {
     opacity: 0.6;
     transform: scale(1) translateY(0);
   }
+
   100% {
     opacity: 0;
     transform: scale(0.4) translateY(-8px);
@@ -79,7 +109,8 @@ html, body {
 
 .sparkle {
   position: absolute;
-  width: 4px;              /* smaller = subtle */
+  width: 4px;
+  /* smaller = subtle */
   height: 4px;
   background-color: rgba(255, 255, 255, 0.7);
   border-radius: 9999px;
@@ -89,25 +120,49 @@ html, body {
 }
 
 @keyframes soft-pulse {
-  0%, 100% { opacity: 0.55; }
-  50% { opacity: 1; }
+
+  0%,
+  100% {
+    opacity: 0.55;
+  }
+
+  50% {
+    opacity: 1;
+  }
 }
+
 .animate-soft-pulse {
   animation: soft-pulse 9s ease-in-out infinite;
 }
 
 @keyframes fade-up {
-  from { opacity: 0; transform: translateY(18px); }
-  to { opacity: 1; transform: translateY(0); }
+  from {
+    opacity: 0;
+    transform: translateY(18px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
 }
+
 .animate-fade-up {
   animation: fade-up 0.8s ease forwards;
 }
 
 @keyframes float {
-  0%, 100% { transform: translateY(0); }
-  50% { transform: translateY(-6px); }
+
+  0%,
+  100% {
+    transform: translateY(0);
+  }
+
+  50% {
+    transform: translateY(-6px);
+  }
 }
+
 .animate-float {
   animation: float 7s ease-in-out infinite;
 }
@@ -115,25 +170,49 @@ html, body {
 
 /* ===== Reveal & Float ===== */
 @keyframes fade-up {
-  from { opacity: 0; transform: translateY(18px); }
-  to { opacity: 1; transform: translateY(0); }
+  from {
+    opacity: 0;
+    transform: translateY(18px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
 }
+
 .animate-fade-up {
   animation: fade-up 0.8s ease forwards;
 }
 
 @keyframes float {
-  0%, 100% { transform: translateY(0); }
-  50% { transform: translateY(-6px); }
+
+  0%,
+  100% {
+    transform: translateY(0);
+  }
+
+  50% {
+    transform: translateY(-6px);
+  }
 }
+
 .animate-float {
   animation: float 7s ease-in-out infinite;
 }
 
 @keyframes soft-pulse {
-  0%, 100% { opacity: 0.55; }
-  50% { opacity: 1; }
+
+  0%,
+  100% {
+    opacity: 0.55;
+  }
+
+  50% {
+    opacity: 1;
+  }
 }
+
 .animate-soft-pulse {
   animation: soft-pulse 9s ease-in-out infinite;
 }
@@ -142,7 +221,8 @@ html, body {
 
 .sparkle-orbit {
   position: absolute;
-  inset: -28px; /* THIS keeps sparkles OUTSIDE */
+  inset: -28px;
+  /* THIS keeps sparkles OUTSIDE */
   pointer-events: none;
   border-radius: 50%;
 }
@@ -156,8 +236,13 @@ html, body {
 }
 
 @keyframes orbit {
-  from { transform: rotate(0deg); }
-  to { transform: rotate(360deg); }
+  from {
+    transform: rotate(0deg);
+  }
+
+  to {
+    transform: rotate(360deg);
+  }
 }
 
 .sparkle-point {
@@ -170,10 +255,29 @@ html, body {
 }
 
 /* evenly spaced */
-.sparkle-point:nth-child(1) { top: 50%; left: 0%; transform: translate(-50%, -50%); }
-.sparkle-point:nth-child(2) { top: 0%; left: 50%; transform: translate(-50%, -50%); }
-.sparkle-point:nth-child(3) { top: 50%; left: 100%; transform: translate(-50%, -50%); }
-.sparkle-point:nth-child(4) { top: 100%; left: 50%; transform: translate(-50%, -50%); }
+.sparkle-point:nth-child(1) {
+  top: 50%;
+  left: 0%;
+  transform: translate(-50%, -50%);
+}
+
+.sparkle-point:nth-child(2) {
+  top: 0%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
+.sparkle-point:nth-child(3) {
+  top: 50%;
+  left: 100%;
+  transform: translate(-50%, -50%);
+}
+
+.sparkle-point:nth-child(4) {
+  top: 100%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
 
 .sparkle-point.soft {
   width: 4px;
@@ -184,8 +288,13 @@ html, body {
 
 /* ===== Ambient Orb Motion ===== */
 @keyframes orbit {
-  0% { transform: rotate(0deg) translateX(18px) rotate(0deg); }
-  100% { transform: rotate(360deg) translateX(18px) rotate(-360deg); }
+  0% {
+    transform: rotate(0deg) translateX(18px) rotate(0deg);
+  }
+
+  100% {
+    transform: rotate(360deg) translateX(18px) rotate(-360deg);
+  }
 }
 
 .orb {
@@ -200,8 +309,13 @@ html, body {
 
 /* ===== Gradient Border Shimmer ===== */
 @keyframes shimmer {
-  0% { background-position: 0% 50%; }
-  100% { background-position: 200% 50%; }
+  0% {
+    background-position: 0% 50%;
+  }
+
+  100% {
+    background-position: 200% 50%;
+  }
 }
 
 .shimmer-border {
@@ -209,46 +323,75 @@ html, body {
   inset: 0;
   border-radius: 2rem;
   padding: 1px;
-  background: linear-gradient(
-    120deg,
-    rgba(255,255,255,0.2),
-    rgba(248,230,193,0.4),
-    rgba(5,135,122,0.4),
-    rgba(255,255,255,0.2)
-  );
+  background: linear-gradient(120deg,
+      rgba(255, 255, 255, 0.2),
+      rgba(248, 230, 193, 0.4),
+      rgba(5, 135, 122, 0.4),
+      rgba(255, 255, 255, 0.2));
   background-size: 200% 200%;
   animation: shimmer 12s linear infinite;
   pointer-events: none;
 }
+
 @keyframes soft-pulse {
-  0%, 100% { opacity: 0.55; }
-  50% { opacity: 1; }
+
+  0%,
+  100% {
+    opacity: 0.55;
+  }
+
+  50% {
+    opacity: 1;
+  }
 }
+
 .animate-soft-pulse {
   animation: soft-pulse 9s ease-in-out infinite;
 }
 
 @keyframes fade-up {
-  from { opacity: 0; transform: translateY(18px); }
-  to { opacity: 1; transform: translateY(0); }
+  from {
+    opacity: 0;
+    transform: translateY(18px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
 }
+
 .animate-fade-up {
   animation: fade-up 0.8s ease forwards;
 }
 
 @keyframes float {
-  0%, 100% { transform: translateY(0); }
-  50% { transform: translateY(-6px); }
+
+  0%,
+  100% {
+    transform: translateY(0);
+  }
+
+  50% {
+    transform: translateY(-6px);
+  }
 }
+
 .animate-float {
   animation: float 7s ease-in-out infinite;
 }
 
 /* Ambient orbiting orbs */
 @keyframes orbit {
-  0% { transform: rotate(0deg) translateX(18px) rotate(0deg); }
-  100% { transform: rotate(360deg) translateX(18px) rotate(-360deg); }
+  0% {
+    transform: rotate(0deg) translateX(18px) rotate(0deg);
+  }
+
+  100% {
+    transform: rotate(360deg) translateX(18px) rotate(-360deg);
+  }
 }
+
 .orb {
   position: absolute;
   width: 120px;
@@ -262,48 +405,77 @@ html, body {
 
 /* Gradient shimmer border */
 @keyframes shimmer {
-  0% { background-position: 0% 50%; }
-  100% { background-position: 200% 50%; }
+  0% {
+    background-position: 0% 50%;
+  }
+
+  100% {
+    background-position: 200% 50%;
+  }
 }
+
 .shimmer-border {
   position: absolute;
   inset: 0;
   border-radius: 2rem;
   padding: 1px;
-  background: linear-gradient(
-    120deg,
-    rgba(255,255,255,0.2),
-    rgba(248,230,193,0.4),
-    rgba(5,135,122,0.4),
-    rgba(255,255,255,0.2)
-  );
+  background: linear-gradient(120deg,
+      rgba(255, 255, 255, 0.2),
+      rgba(248, 230, 193, 0.4),
+      rgba(5, 135, 122, 0.4),
+      rgba(255, 255, 255, 0.2));
   background-size: 200% 200%;
   animation: shimmer 14s linear infinite;
   pointer-events: none;
 }
+
 /* Fade up */
 @keyframes fade-up {
-  from { opacity: 0; transform: translateY(18px); }
-  to { opacity: 1; transform: translateY(0); }
+  from {
+    opacity: 0;
+    transform: translateY(18px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
 }
+
 .animate-fade-up {
   animation: fade-up 0.8s ease forwards;
 }
 
 /* Floating anchor card */
 @keyframes float {
-  0%, 100% { transform: translateY(0); }
-  50% { transform: translateY(-6px); }
+
+  0%,
+  100% {
+    transform: translateY(0);
+  }
+
+  50% {
+    transform: translateY(-6px);
+  }
 }
+
 .animate-float {
   animation: float 7s ease-in-out infinite;
 }
 
 /* Soft background pulse */
 @keyframes soft-pulse {
-  0%, 100% { opacity: 0.55; }
-  50% { opacity: 1; }
+
+  0%,
+  100% {
+    opacity: 0.55;
+  }
+
+  50% {
+    opacity: 1;
+  }
 }
+
 .animate-soft-pulse {
   animation: soft-pulse 9s ease-in-out infinite;
 }
@@ -330,12 +502,10 @@ html, body {
   position: relative;
   border-radius: 16px;
   padding: 2px;
-  background: linear-gradient(
-    120deg,
-    transparent 35%,
-    rgba(5, 135, 122, 0.9),
-    transparent 65%
-  );
+  background: linear-gradient(120deg,
+      transparent 35%,
+      rgba(5, 135, 122, 0.9),
+      transparent 65%);
   background-size: 200% 200%;
   animation: shine-move 3.5s linear infinite;
 }
@@ -352,9 +522,8 @@ html, body {
   from {
     background-position: 200% 0;
   }
+
   to {
     background-position: -200% 0;
   }
 }
-
-

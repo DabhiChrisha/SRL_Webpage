@@ -9,52 +9,52 @@ import { doc, runTransaction } from "firebase/firestore";
 
 export default function StatsSection() {
   const sectionRef = useRef(null);
-useEffect(() => {
-  const incrementVisitor = async () => {
-    // ✅ prevent duplicate increment in same tab lifecycle
-    if (sessionStorage.getItem("visitorCounted")) return;
+  useEffect(() => {
+    const incrementVisitor = async () => {
+      // ✅ prevent duplicate increment in same tab lifecycle
+      if (sessionStorage.getItem("visitorCounted")) return;
 
-    try {
-      // wait for anonymous auth
-      if (!auth.currentUser) {
-        await signInAnonymously(auth);
-      }
-
-      const docRef = doc(db, "stats", "visitors");
-
-      const newCount = await runTransaction(db, async (transaction) => {
-        const snap = await transaction.get(docRef);
-
-        if (!snap.exists()) {
-          transaction.set(docRef, { count: 1 });
-          return 1;
-        } else {
-          const updated = snap.data().count + 1;
-          transaction.update(docRef, { count: updated });
-          return updated;
+      try {
+        // wait for anonymous auth
+        if (!auth.currentUser) {
+          await signInAnonymously(auth);
         }
-      });
 
-      // mark counted for this tab session
-      sessionStorage.setItem("visitorCounted", "true");
+        const docRef = doc(db, "stats", "visitors");
 
-      setVisitorCount(newCount);
+        const newCount = await runTransaction(db, async (transaction) => {
+          const snap = await transaction.get(docRef);
 
-      setDisplayCounts((prev) => {
-        const updated = [...prev];
-        updated[0] = newCount;
-        return updated;
-      });
+          if (!snap.exists()) {
+            transaction.set(docRef, { count: 1 });
+            return 1;
+          } else {
+            const updated = snap.data().count + 1;
+            transaction.update(docRef, { count: updated });
+            return updated;
+          }
+        });
 
-      console.log("✅ Visitor incremented:", newCount);
+        // mark counted for this tab session
+        sessionStorage.setItem("visitorCounted", "true");
 
-    } catch (error) {
-      console.error("🔥 Firebase transaction failed:", error);
-    }
-  };
+        setVisitorCount(newCount);
 
-  incrementVisitor();
-}, []);
+        setDisplayCounts((prev) => {
+          const updated = [...prev];
+          updated[0] = newCount;
+          return updated;
+        });
+
+        console.log("✅ Visitor incremented:", newCount);
+
+      } catch (error) {
+        console.error("🔥 Firebase transaction failed:", error);
+      }
+    };
+
+    incrementVisitor();
+  }, []);
 
 
   const [visible, setVisible] = useState(false);
@@ -197,9 +197,8 @@ useEffect(() => {
             return (
               <div
                 key={index}
-                className={`group relative rounded-2xl p-8 bg-white/10 backdrop-blur-md border border-white/20 shadow-lg transition-all duration-500 hover:scale-105 ${
-                  visible ? "opacity-100" : "opacity-0 translate-y-8"
-                }`}
+                className={`group relative rounded-2xl p-8 bg-white/10 backdrop-blur-md border border-white/20 shadow-lg transition-all duration-500 hover:scale-105 ${visible ? "opacity-100" : "opacity-0 translate-y-8"
+                  }`}
                 style={{ transitionDelay: `${index * 100}ms` }}
               >
                 <div className="mb-6 inline-flex p-3 rounded-lg bg-white/20">

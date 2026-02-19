@@ -62,6 +62,11 @@ const cards = [
   },
 ];
 
+/* ========= IMPORT COMPONENT ========= */
+import ResearchBackground from "./ResearchBackground";
+
+import GradientText from "./GradientText";
+
 /* ========= MAIN COMPONENT ========= */
 export default function Activities() {
   const [index, setIndex] = useState(0);
@@ -87,15 +92,28 @@ export default function Activities() {
   }, [index]);
 
   return (
-    <section id="activities" className="bg-white px-16 pt-20 scroll-mt-24">
-      <h2 className="text-center text-2xl font-bold mb-16">
-        Activities
-      </h2>
+    <section id="activities" className="relative px-16 pt-20 scroll-mt-24 overflow-hidden z-0">
+      <ResearchBackground />
+      <div className="relative z-10 mb-16 flex justify-center">
+        <GradientText
+          colors={["#0b3d3a", "#c9a24d", "#0b3d3a", "#0b3d3a"]}
+          animationSpeed={3}
+          showBorder={false}
+          animateOnHover={true}
+          className="text-5xl font-merriweather font-bold px-4 py-2"
+        >
+          Activities
+        </GradientText>
+      </div>
 
       <div className="relative max-w-7xl mx-auto">
         <div
-          className="relative flex justify-center overflow-visible"
-          style={{ height: CARD_HEIGHT }}
+          className="relative flex justify-center overflow-visible perspective-1000"
+          style={{
+            height: CARD_HEIGHT,
+            perspective: "1000px",
+            transformStyle: "preserve-3d",
+          }}
         >
           <Arrow dir="left" onClick={prev} />
 
@@ -112,16 +130,27 @@ export default function Activities() {
             return (
               <motion.div
                 key={i}
+                initial={{ scale: 0.9, rotateY: 0 }}
                 animate={{
                   x: pos * (CARD_WIDTH + GAP),
-                  scale: pos === 0 ? 1.08 : 0.92,
-                  opacity: pos === 0 ? 1 : 0.6,
-                  y: pos === 0 ? -20 : 0,
+                  y: pos === 0 ? 0 : 20,
+                  scale: pos === 0 ? 1.15 : 0.9,
+                  rotateY: pos === 0 ? 0 : pos > 0 ? -15 : 15,
+                  zIndex: pos === 0 ? 50 : 5,
+                  opacity: Math.abs(pos) >= 2 ? 0 : pos === 0 ? 1 : 0.6,
+                  filter: pos === 0 ? "blur(0px)" : "blur(2px)",
                 }}
-                transition={{ duration: 0.6, ease: "easeOut" }}
+                transition={{
+                  duration: 0.5,
+                  type: "spring",
+                  stiffness: 150,
+                  damping: 20
+                }}
                 style={{
                   position: "absolute",
-                  zIndex: pos === 0 ? 10 : 5,
+                  transformStyle: "preserve-3d",
+                  boxShadow: pos === 0 ? "0 25px 50px -12px rgba(0, 0, 0, 0.5)" : "none",
+                  borderRadius: "20px"
                 }}
               >
                 {item.type === "image" && (
@@ -152,9 +181,8 @@ function Arrow({ dir, onClick }) {
   return (
     <button
       onClick={onClick}
-      className={`absolute ${
-        dir === "left" ? "-left-8" : "-right-8"
-      } top-1/2 -translate-y-1/2
+      className={`absolute ${dir === "left" ? "-left-8" : "-right-8"
+        } top-1/2 -translate-y-1/2
       w-14 h-14 rounded-full
       border border-gray-300 bg-white
       flex items-center justify-center
@@ -187,8 +215,8 @@ function Arrow({ dir, onClick }) {
         >
           <polyline points="9 18 15 12 9 6" />
         </svg>
-  )}
-</button>
+      )}
+    </button>
   );
 }
 
@@ -225,7 +253,7 @@ function VideoCard({ item, isActive }) {
     if (!video) return;
 
     if (isActive) {
-      video.play().catch(() => {});
+      video.play().catch(() => { });
     } else {
       video.pause();
       video.currentTime = 0;
