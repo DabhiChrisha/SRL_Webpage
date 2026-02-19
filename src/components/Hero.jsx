@@ -1,7 +1,11 @@
 import { useState, useEffect } from "react";
 
 // 👉 Replace with your actual images
+<<<<<<< HEAD
 import slide1 from "../assets/hero.png";
+=======
+import slide1 from "../assets/HERo123.png";
+>>>>>>> 898f76015a3d8ba2a6ea4b3150805c8b52d0ac49
 import slide2 from "../assets/hero2.jpeg";
 import slide3 from "../assets/hero3.jpeg";
 import srlLogo from "../assets/SRL Logo.png";
@@ -62,7 +66,11 @@ export default function Hero() {
 
       {/* ===== TEXT CONTAINER ===== */}
       <div
+<<<<<<< HEAD
         className={`absolute inset-0 flex flex-col px-6 md:px-16 ${slides[current].align} transition-all duration-700`}
+=======
+        className={`absolute inset-0 flex px-2 md:px-8 ${slides[current].align}`}
+>>>>>>> 898f76015a3d8ba2a6ea4b3150805c8b52d0ac49
       >
         <div className="max-w-3xl w-full">
 

@@ -44,7 +44,11 @@
 //                 {/* Text fallback / identity */}
 //                 <div className="flex flex-col text-left">
 //                   <span className="text-sm font-semibold text-amber-100 leading-none">
+<<<<<<< HEAD
 //                     Students Research Lab 
+=======
+//                     Students Research Lab
+>>>>>>> 898f76015a3d8ba2a6ea4b3150805c8b52d0ac49
 //                   </span>
 //                   <span className="text-xs tracking-wide text-amber-200">
 //                     MMPSRPC, Kadi Sarva Vishwavidyalaya
@@ -95,7 +99,11 @@
 //       >
 //         <div className="max-w-3xl text-center">
 //           <h1 className="text-4xl md:text-5xl font-semibold text-emerald-900 mb-4">
+<<<<<<< HEAD
 //             Students Research Lab 
+=======
+//             Students Research Lab
+>>>>>>> 898f76015a3d8ba2a6ea4b3150805c8b52d0ac49
 //           </h1>
 //           <p className="text-lg text-emerald-800 mb-3">MMPSRPC, Kadi Sarva Vishwavidyalaya </p>
 //           <p className="text-gray-700 leading-relaxed">
@@ -278,7 +286,11 @@
 //       {/* ================= Footer ================= */}
 //       <footer className="bg-emerald-900 py-6">
 //         <p className="text-center text-amber-100 text-sm">
+<<<<<<< HEAD
 //           © Students Research Lab  – MMPSRPC, Kadi Sarva Vishwavidyalaya 
+=======
+//           © Students Research Lab – MMPSRPC, KSV
+>>>>>>> 898f76015a3d8ba2a6ea4b3150805c8b52d0ac49
 //         </p>
 //       </footer>
 //     </div>

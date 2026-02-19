@@ -17,8 +17,40 @@ function Footer() {
               <div className="w-32 h-32 rounded-full bg-white flex items-center justify-center mb-4 border-2 border-[#ffffff] drop-shadow-lg">
                 <img src={srlLogo} alt="SRL Logo" className="w-28 h-28 object-contain" />
               </div>
+<<<<<<< HEAD
               <p className="text-sm text-center max-w-xs text-gray-700 leading-relaxed">
                 Inspiring students to innovate, collaborate, and make significant societal contributions through research excellence.
+=======
+              <div>
+                <a href="#visionary-charter" className="text-sm text-gray-700 hover:text-[#05877a] transition duration-300 block">Visionary Charter</a>
+              </div>
+              <div>
+                <a href="#activities" className="text-sm text-gray-700 hover:text-[#05877a] transition duration-300 block">Activities</a>
+              </div>
+              <div>
+                <a href="#students-leaderboard" className="text-sm text-gray-700 hover:text-[#05877a] transition duration-300 block">Leaderboard</a>
+              </div>
+              <div>
+                <a href="#srl-student-members" className="text-sm text-gray-700 hover:text-[#05877a] transition duration-300 block">SRL Members</a>
+              </div>
+              <div>
+                <a href="#" className="text-sm text-gray-700 hover:text-[#05877a] transition duration-300 block">News</a>
+              </div>
+            </div>
+          </div>
+
+          {/* Contact Us */}
+          <div>
+            <h3 className="text-lg font-semibold mb-4 text-[#05877a]">Contact Us</h3>
+            <address className="text-sm not-italic space-y-2 text-gray-700">
+              <p className="font-semibold">Students Research Lab</p>
+              <p>Kadi Sarva Vishwavidyalaya</p>
+              <p>Gandhinagar, Gujarat, India</p>
+              <p>
+                <a href="tel:+917923244690" className="hover:text-[#05877a] transition duration-300">
+                  Phone: 079-232-44690
+                </a>
+>>>>>>> 898f76015a3d8ba2a6ea4b3150805c8b52d0ac49
               </p>
             </div>
 
@@ -94,11 +126,19 @@ function Footer() {
             </div>
           </div>
 
+<<<<<<< HEAD
           {/* Divider */}
           <div className="mt-12 pt-8 border-t border-[#05877a]/30 text-center text-sm text-gray-700">
             <p>© {new Date().getFullYear()} Students Research Lab . All rights reserved.</p>
             <p className="mt-1 text-xs">Excellence Through Discipline</p>
           </div>
+=======
+        {/* Divider */}
+        <div className="mt-12 pt-8 border-t border-[#05877a]/30 text-center text-sm text-gray-700">
+          <p>© {new Date().getFullYear()} Students Research Lab. All rights reserved.</p>
+          <p className="mt-1 text-xs">Excellence Through Discipline</p>
+        </div>
+>>>>>>> 898f76015a3d8ba2a6ea4b3150805c8b52d0ac49
         </div>
       </div>
     </footer>
