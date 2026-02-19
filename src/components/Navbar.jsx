@@ -79,11 +79,7 @@ export default function Navbar() {
           </div>
 
           <div className="block leading-none whitespace-nowrap">
-<<<<<<< HEAD
-            <div className="text-xs sm:text-sm md:text-lg font-extrabold text-[#05877a]">Students Research Lab </div>
-=======
             <div className="text-xs sm:text-sm md:text-lg font-extrabold text-[#05877a]">Students Research Lab</div>
->>>>>>> 898f76015a3d8ba2a6ea4b3150805c8b52d0ac49
             <div className="text-xs text-gray-500">MMPSRPC, Kadi Sarva Vishwavidyalaya</div>
           </div>
         </a>
@@ -135,15 +131,9 @@ export default function Navbar() {
             <JoinUsButton />
             <SRLAppointmentButton />
           </div>
-<<<<<<< HEAD
 
           <div className="hidden lg:flex items-center gap-4 border-l border-gray-300 pl-5">
-            <a href="https://www.svkm.ac.in/" target="_blank" rel="noopener noreferrer" className="transition-transform hover:scale-110">
-=======
-          
-                    <div className="hidden lg:flex items-center gap-4 border-l border-gray-300 pl-5">
             <a href="https://svkm.org.in/" target="_blank" rel="noopener noreferrer" className="transition-transform hover:scale-110">
->>>>>>> 898f76015a3d8ba2a6ea4b3150805c8b52d0ac49
               <img src={svkmLogo} alt="SVKM Logo" className="h-12 drop-shadow-md" />
             </a>
             <a href="https://www.ksv.ac.in/" target="_blank" rel="noopener noreferrer" className="transition-transform hover:scale-110">
@@ -155,10 +145,7 @@ export default function Navbar() {
           </div>
         </div>
 
-
       </div>
-
-
 
       {/* ✅ GLOBAL GLOW STYLE */}
       <style>{`
