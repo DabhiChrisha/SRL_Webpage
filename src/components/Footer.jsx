@@ -1,104 +1,107 @@
+// ==============================
+// SRL_Webpage/src/components/Footer.jsx
+// ==============================
 import { Linkedin } from "lucide-react";
+import srlLogo from "/SRL Logo.svg";
 
-export default function Footer() {
+function Footer() {
   return (
-    <footer className="bg-[#faf1d5] text-gray-900">
-      <div className="max-w-7xl mx-auto px-8 py-12">
-        <div className="grid grid-cols-1 md:grid-cols-4 gap-12">
+    <footer className="bg-[#f8e6c1] text-gray-800 w-full">
+      {/* Main Footer Content */}
+      <div className="w-full px-6 py-12">
+        <div className="max-w-7xl mx-auto">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-8">
           
-          {/* Logo & Tagline Section */}
-          <div className="flex flex-col items-start">
-            <div className="mb-4">
-              <img 
-                src="/SRL Logo.svg" 
-                alt="SRL Logo" 
-                className="w-32 h-32 bg-white rounded-full p-4"
-              />
+          {/* Logo & Description */}
+          <div className="col-span-1 md:col-span-2 lg:col-span-1 flex flex-col items-center">
+            <div className="w-32 h-32 rounded-full bg-white flex items-center justify-center mb-4 border-2 border-[#ffffff] drop-shadow-lg">
+              <img src={srlLogo} alt="SRL Logo" className="w-28 h-28 object-contain" />
             </div>
-            <p className="text-gray-800 text-sm leading-relaxed">
-              Inspiring students to innovate, collaborate, and make significant societal contributions through research excellence, since 2025
+            <p className="text-sm text-center max-w-xs text-gray-700 leading-relaxed">
+              Inspiring students to innovate, collaborate, and make significant societal contributions through research excellence.
             </p>
           </div>
 
-          {/* Quick Links Section */}
+          {/* Quick Links */}
           <div>
-            <h3 className="text-xl font-semibold mb-6 text-gray-900">Quick Links</h3>
-            <div className="grid grid-cols-2 gap-x-8 gap-y-3">
-              <a href="#top" className="text-gray-700 hover:text-[#05877a] transition-colors text-sm">
-                Home
-              </a>
-              <a href="#visionary-charter" className="text-gray-700 hover:text-[#05877a] transition-colors text-sm">
-                About Us
-              </a>
-              <a href="#activities" className="text-gray-700 hover:text-[#05877a] transition-colors text-sm">
-                Hackathons
-              </a>
-              <a href="#activities" className="text-gray-700 hover:text-[#05877a] transition-colors text-sm">
-                Projects
-              </a>
-              <a href="#activities" className="text-gray-700 hover:text-[#05877a] transition-colors text-sm">
-                Events
-              </a>
-              <a href="#head-srl" className="text-gray-700 hover:text-[#05877a] transition-colors text-sm">
-                Coordinators
-              </a>
-              <a href="#achievements" className="text-gray-700 hover:text-[#05877a] transition-colors text-sm">
-                Achievements
-              </a>
-              <a href="#activities" className="text-gray-700 hover:text-[#05877a] transition-colors text-sm">
-                Gallery
-              </a>
-              <a href="#contact-us" className="text-gray-700 hover:text-[#05877a] transition-colors text-sm">
-                Contact Us
-              </a>
-              <a href="#activities" className="text-gray-700 hover:text-[#05877a] transition-colors text-sm">
-                News
-              </a>
+            <h3 className="text-lg font-semibold mb-4 text-[#05877a]">Quick Links</h3>
+            <div className="grid grid-cols-2 gap-x-4 gap-y-2">
+              <div>
+                <a href="#top" className="text-sm text-gray-700 hover:text-[#05877a] transition duration-300 block">Home</a>
+              </div>
+              <div>
+                <a href="#visionary-charter" className="text-sm text-gray-700 hover:text-[#05877a] transition duration-300 block">Visionary Charter</a>
+              </div>
+              <div>
+                <a href="#activities" className="text-sm text-gray-700 hover:text-[#05877a] transition duration-300 block">Activities</a>
+              </div>
+              <div>
+                <a href="#students-leaderboard" className="text-sm text-gray-700 hover:text-[#05877a] transition duration-300 block">Leaderboard</a>
+              </div>
+              <div>
+                <a href="#srl-student-members" className="text-sm text-gray-700 hover:text-[#05877a] transition duration-300 block">SRL Members</a>
+              </div>
+              <div>
+                <a href="#" className="text-sm text-gray-700 hover:text-[#05877a] transition duration-300 block">News</a>
+              </div>
             </div>
           </div>
 
-          {/* Contact Us Section */}
+          {/* Contact Us */}
           <div>
-            <h3 className="text-xl font-semibold mb-6 text-gray-900">Contact Us</h3>
-            <div className="space-y-4 text-sm">
-              <p className="text-gray-800 leading-relaxed">
-                M. M. Patel Students Research Project Cell<br />
-                KSV University, Gandhinagar, Gujarat, India
+            <h3 className="text-lg font-semibold mb-4 text-[#05877a]">Contact Us</h3>
+            <address className="text-sm not-italic space-y-2 text-gray-700">
+              <p className="font-semibold">Student Research Lab</p>
+              <p>Kadi Sarva Vishwavidyalaya</p>
+              <p>Gandhinagar, Gujarat, India</p>
+              <p>
+                <a href="tel:+917923244690" className="hover:text-[#05877a] transition duration-300">
+                  Phone: 079-232-44690
+                </a>
               </p>
-              <p className="text-gray-800">
-                Phone: 079-232-44690
+              <p>
+                <a href="mailto:mmpsrc.ksv@gmail.com" className="hover:text-[#05877a] transition duration-300">
+                  Email: mmpsrc.ksv@gmail.com
+                </a>
               </p>
-              <p className="text-gray-800">
-                Email: mmpsrc.ksv@gmail.com
-              </p>
-            </div>
+            </address>
           </div>
 
-          {/* Follow Us Section */}
-          <div>
-            <h3 className="text-xl font-semibold mb-6 text-gray-900">Follow Us</h3>
-            <div className="flex items-center gap-3">
-              <a 
-                href="https://www.linkedin.com/company/mmpsrpc" 
-                target="_blank"
-                rel="noopener noreferrer"
-                className="text-gray-800 hover:text-[#05877a] transition-all hover:scale-110"
-                aria-label="LinkedIn"
-              >
-                <Linkedin size={24} />
-              </a>
-              <a 
-                href="https://www.linkedin.com/company/mmpsrpc" 
-                target="_blank"
-                rel="noopener noreferrer"
-                className="text-gray-800 hover:text-[#05877a] transition-colors text-sm"
-              >
-                @mmpsrpc
-              </a>
+          {/* Follow Us */}
+          <div className="col-span-1 md:col-span-2 lg:col-span-1">
+            <h3 className="text-lg font-semibold mb-4 text-[#05877a]">Follow Us</h3>
+            <div className="flex flex-col space-y-3">
+              <div className="flex items-center space-x-3">
+                <a 
+                  href="https://www.linkedin.com/company/mmpsrpc" 
+                  aria-label="LinkedIn"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="text-2xl text-[#05877a] hover:text-[#046a61] transition duration-300"
+                >
+                  <Linkedin size={24} fill="currentColor" />
+                </a>
+                <a 
+                  href="https://www.linkedin.com/company/mmpsrpc" 
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="text-sm font-semibold text-gray-700 hover:text-[#05877a] transition duration-300"
+                >
+                  @MMPSRPC
+                </a>
+              </div>
             </div>
           </div>
+        </div>
+
+        {/* Divider */}
+        <div className="mt-12 pt-8 border-t border-[#05877a]/30 text-center text-sm text-gray-700">
+          <p>© {new Date().getFullYear()} Student Research Lab. All rights reserved.</p>
+          <p className="mt-1 text-xs">Excellence Through Discipline</p>
+        </div>
         </div>
       </div>
     </footer>
   );
 }
+export default Footer;

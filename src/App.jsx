@@ -1,4 +1,5 @@
 import React from "react";
+import { Home, Grid3X3, TrendingUp, Users } from "lucide-react";
 
 import Navbar from "./components/Navbar";
 import Footer from "./components/Footer";
@@ -11,9 +12,31 @@ import HeadSRL from "./components/HeadSRL";
 import SRLStudentMembers from "./components/SRLStudentMembers";
 import ContactUs1 from "./components/mvpblocks/contact-us-1";
 import ScrollToTop from "./components/ScrollToTop";
-
+import Dock from "./components/Dock";
+import StatsSection from "./components/StatsSection";
+import AnimatedPreloader from "./components/AnimatedPreloader";
 export default function App() {
+  const dockItems = [
+    { icon: <Home size={20} />, label: 'Visionary', onClick: () => {
+      const element = document.getElementById('visionary-charter');
+      if (element) element.scrollIntoView({ behavior: 'smooth' });
+    }},
+    { icon: <Grid3X3 size={20} />, label: 'Activities', onClick: () => {
+      const element = document.getElementById('activities');
+      if (element) element.scrollIntoView({ behavior: 'smooth' });
+    }},
+    { icon: <TrendingUp size={20} />, label: 'Leaderboard', onClick: () => {
+      const element = document.getElementById('students-leaderboard');
+      if (element) element.scrollIntoView({ behavior: 'smooth' });
+    }},
+    { icon: <Users size={20} />, label: 'Members', onClick: () => {
+      const element = document.getElementById('srl-student-members');
+      if (element) element.scrollIntoView({ behavior: 'smooth' });
+    }},
+  ];
   return (
+    <>
+    <AnimatedPreloader/>
     <div className="relative min-h-screen text-deepgreen bg-[#f6f9f7]">
       {/* Soft radial light (top) */}
       <div className="absolute -top-40 left-1/2 -translate-x-1/2 w-225 h-225 bg-[#d5e3dc]/50 rounded-full blur-3xl"></div>
@@ -34,10 +57,22 @@ export default function App() {
         <Leaderboard />
         <HeadSRL />
         <SRLStudentMembers />
+        <StatsSection />
         <ContactUs1 />
         <Footer />
         <ScrollToTop />
+       
+      </div>
+      {/* Mobile & Tablet Dock at Bottom */}
+      <div className="lg:hidden fixed bottom-0 left-0 right-0 z-40 bg-transparent w-full flex justify-center">
+        <Dock 
+          items={dockItems}
+          panelHeight={68}
+          baseItemSize={50}
+          magnification={70}
+        />
       </div>
     </div>
+  </>
   );
 }

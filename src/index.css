@@ -1,6 +1,12 @@
 @import "tailwindcss";
-html {
+
+html, body {
   scroll-behavior: smooth;
+  width: 100%;
+  min-height: 100vh;
+  margin: 0;
+  padding: 0;
+  overflow-x: hidden;
 }
 @keyframes slow-spin {
   from {

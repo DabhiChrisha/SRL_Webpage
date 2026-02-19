@@ -1,44 +1,69 @@
+import CardCarousel from "./CardCarousel";
+
+import img1 from "../assets/ActivityCards/img-1.jpg";
+import img2 from "../assets/ActivityCards/img-2.jpg";
+import img3 from "../assets/ActivityCards/img-3.jpg";
+import img4 from "../assets/ActivityCards/img-4.jpg";
+import img5 from "../assets/ActivityCards/img-5.jpg";
+import img6 from "../assets/ActivityCards/img-6.jpg";
+
+const achievementsCards = [
+  {
+    type: "image",
+    title: "Best Project Award",
+    caption:
+      "Our team secured first place in ImpactThon.",
+    image: img4,
+    link: "https://www.linkedin.com/posts/mmpsrpc_svkm-ksv-mmprc-activity-7428803534722068480-m68o?utm_source=share&utm_medium=member_desktop&rcm=ACoAAFJiBFMBBjWJQ8FYFoDQDvjaardrEEtrUsI",
+  },
+  {
+    type: "image",
+    title: "Best Project Award",
+    caption:
+      "Our team secured first place in ImpactThon.",
+    image: img5,
+    link: "https://www.linkedin.com/posts/mmpsrpc_edunetfoundation-ksv-svkm-activity-7429557690068017152-W3eO?utm_source=share&utm_medium=member_desktop&rcm=ACoAAFJiBFMBBjWJQ8FYFoDQDvjaardrEEtrUsI",
+  },
+  {
+    type: "image",
+    title: "Best Project Award",
+    caption:
+      "Our team secured first place in ImpactThon.",
+    image: img6,
+    link: "https://www.linkedin.com/posts/mmpsrpc_mmpsrpc-srl-ksv-activity-7419418359429115904-bOge?utm_source=share&utm_medium=member_desktop&rcm=ACoAAFJiBFMBBjWJQ8FYFoDQDvjaardrEEtrUsI",
+  },
+    {
+    type: "image",
+    title: "Best Project Award",
+    caption:
+      "Our team secured first place in ImpactThon.",
+    image: img1,
+    link: "https://www.linkedin.com/posts/mmpsrpc_ksv-svkm-mmpsrpc-activity-7407377566589759488-qigD?utm_source=share&utm_medium=member_desktop&rcm=ACoAAFJiBFMBBjWJQ8FYFoDQDvjaardrEEtrUsI",
+  },
+  {
+    type: "image",
+    title: "National Recognition",
+    caption:
+      "Recognized at national level technical competition.",
+    image: img2,
+    link: "https://www.linkedin.com/posts/mmpsrpc_ksv-researchexcellence-studentachievement-activity-7412352256806920192-MoVv?utm_source=share&utm_medium=member_desktop&rcm=ACoAAFJiBFMBBjWJQ8FYFoDQDvjaardrEEtrUsI",
+  },
+  {
+    type: "image",
+    title: "IEEE Appreciation",
+    caption:
+      "Honored for outstanding contribution to SRL.",
+    image: img3,
+    link: "https://www.linkedin.com/posts/mmpsrpc_ksv-ldrpitr-mmpsrpc-activity-7413814908217344000-JmvS?utm_source=share&utm_medium=member_desktop&rcm=ACoAAFJiBFMBBjWJQ8FYFoDQDvjaardrEEtrUsI",
+  },
+];
+
 export default function Achievements() {
   return (
-    <section id="achievements" className="relative py-20">
-      <div className="max-w-6xl mx-auto px-6">
-        <div className="text-center">
-          <p className="text-sm uppercase tracking-widest text-[#05877a] font-semibold">
-            Achievements
-          </p>
-          <h2 className="mt-2 text-3xl sm:text-4xl font-extrabold text-deepgreen">
-            Milestones Worth Celebrating
-          </h2>
-          <p className="mt-4 text-gray-600 max-w-2xl mx-auto">
-            Highlights from student projects, publications, and awards that
-            reflect our growing research culture.
-          </p>
-        </div>
-
-        <div className="mt-10 grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
-          <div className="rounded-2xl border border-emerald-100 bg-white/80 p-6 text-left shadow-sm">
-            <p className="text-xs uppercase tracking-wider text-gray-500">Publication</p>
-            <h3 className="mt-2 text-lg font-bold text-deepgreen">Peer-reviewed Papers</h3>
-            <p className="mt-2 text-sm text-gray-600">
-              Students co-authored papers in reputed conferences and journals.
-            </p>
-          </div>
-          <div className="rounded-2xl border border-emerald-100 bg-white/80 p-6 text-left shadow-sm">
-            <p className="text-xs uppercase tracking-wider text-gray-500">Recognition</p>
-            <h3 className="mt-2 text-lg font-bold text-deepgreen">Awards & Grants</h3>
-            <p className="mt-2 text-sm text-gray-600">
-              Teams secured grants and awards for impactful research ideas.
-            </p>
-          </div>
-          <div className="rounded-2xl border border-emerald-100 bg-white/80 p-6 text-left shadow-sm">
-            <p className="text-xs uppercase tracking-wider text-gray-500">Innovation</p>
-            <h3 className="mt-2 text-lg font-bold text-deepgreen">Prototype Showcases</h3>
-            <p className="mt-2 text-sm text-gray-600">
-              Working prototypes showcased at academic and industry events.
-            </p>
-          </div>
-        </div>
-      </div>
-    </section>
+    <CardCarousel
+      title="Achievements"
+      cards={achievementsCards}
+      sectionId="achievements"
+    />
   );
 }

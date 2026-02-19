@@ -1,18 +1,17 @@
 import { useEffect, useState } from "react";
-import { Menu, X } from "lucide-react";
 import SRLAppointmentButton from "./SRLAppointmentButton";
 import JoinUsButton from "./JoinUsButton";
 
+import srlLogo from "/SRL Logo.svg";
 import ksvLogo from "../assets/KSV Logo.png";
 import svkmLogo from "../assets/svkm.png";
 import mmpsrpcLogo from "../assets/MMPSRPC Logo.png";
 
 export default function Navbar() {
-  const [isOpen, setIsOpen] = useState(false);
   const [activeSection, setActiveSection] = useState("");
   const [scrolled, setScrolled] = useState(false);
 
-  const navItems = [
+    const navItems = [
     { label: "Visionary Charter", id: "visionary-charter" },
     { label: "Activities", id: "activities" },
     { label: "Achievements", id: "achievements" },
@@ -40,51 +39,47 @@ export default function Navbar() {
     handleScroll();
 
     return () => window.removeEventListener("scroll", handleScroll);
-  }, [navItems]);
+  }, []);
 
-  useEffect(() => {
-    const handleResize = () => {
-      if (window.innerWidth >= 1024 && isOpen) {
-        setIsOpen(false);
-      }
-    };
-
-    window.addEventListener("resize", handleResize);
-    return () => window.removeEventListener("resize", handleResize);
-  }, [isOpen]);
+  // Handle smooth scroll to section on click
+  const handleNavClick = (e, id) => {
+    e.preventDefault();
+    const element = document.getElementById(id);
+    if (element) {
+      element.scrollIntoView({ behavior: "smooth" });
+    }
+  };
 
   return (
     <nav
       className={`
-        sticky top-0 z-50
+        fixed top-0 left-0 w-full z-50
         transition-all duration-300
         ${scrolled
-          ? "bg-white/80 backdrop-blur-md border-b border-gray-200 shadow-sm"
-          : "bg-white"}
+          ? "bg-[#ffffff] backdrop-blur-lg border-b border-gray-200 shadow-md"
+          : "bg-[#ffffff] backdrop-blur-sm shadow-sm"}
       `}
     >
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-16 flex items-center justify-between gap-2 sm:gap-4">
-        {/* ================= SRL BRAND ================= */}
-        <a href="#top" className="flex items-center gap-4 shrink-0">
-          <div className="relative flex items-center justify-center">
-            <div
-              className="absolute w-20 h-20 rounded-full bg-[#05877a]/30 blur-2xl animate-spin"
-              style={{ animationDuration: "14s" }}
-            />
-            <div className="absolute w-14 h-14 rounded-full bg-[#05877a]/25 blur-lg" />
-            <div className="relative z-10 w-11 h-11 rounded-full bg-white flex items-center justify-center shadow-xl">
-              <img src="/SRL Logo.svg" alt="SRL Logo" className="w-8 h-8" />
-            </div>
-          </div>
+      <div className="w-full mr-3 px-6 h-20 flex items-center justify-start gap-6">
 
-          <div className="hidden sm:block leading-tight whitespace-nowrap">
-            <div className="text-lg font-extrabold text-[#05877a]">Student Research Lab</div>
-            <div className="text-xs text-gray-500">MMPSRPC, Kadi Sarva Vishwavidyalaya</div>
+        {/* ================= SRL BRAND ================= */}
+        <a href="#top" className="flex items-center gap-2 sm:gap-3 shrink-0">
+              <div className="flex items-center justify-center">
+                <div className="w-12 h-12 sm:w-16 sm:h-16 rounded-full bg-[#fff6e3] drop-shadow-md flex items-center justify-center">
+                <img src={srlLogo} alt="SRL Logo" className="w-10 h-10 sm:w-14 sm:h-14" />
+                </div>
+              </div>
+
+          <div className="block leading-none whitespace-nowrap">
+            <div className="text-xs sm:text-sm md:text-lg font-extrabold text-[#05877a]">Student Research Lab</div>
+            <div className="text-xs text-gray-500">MMPSRPC, KSV</div>
           </div>
         </a>
 
+        <div className="flex-1"></div>
+
         {/* ================= DESKTOP NAV ================= */}
-        <ul className="hidden lg:flex items-center gap-6 flex-1 justify-center">
+        <ul className="hidden lg:flex items-center gap-6 justify-center">
           {navItems.map((item) => {
             const isActive = activeSection === item.id;
 
@@ -92,25 +87,30 @@ export default function Navbar() {
               <li key={item.id}>
                 <a
                   href={`#${item.id}`}
+                  onClick={(e) => handleNavClick(e, item.id)}
                   className={`
                     relative
                     text-sm
                     font-medium
                     whitespace-nowrap
                     transition-all duration-300
+                    pb-1
                     ${isActive ? "text-[#05877a]" : "text-gray-700 hover:text-[#05877a]"}
-                    
-                    after:absolute
-                    after:left-0
-                    after:-bottom-1
-                    after:h-0.5
-                    after:bg-[#05877a]
-                    after:transition-all
-                    after:duration-300
-                    ${isActive ? "after:w-full" : "after:w-0 hover:after:w-full"}
                   `}
                 >
                   {item.label}
+                  <span
+                    className={`
+                      absolute
+                      bottom-0
+                      left-0
+                      h-0.5
+                      bg-[#05877a]
+                      transition-all
+                      duration-300
+                      ${isActive ? "w-full" : "w-0"} hover:w-full
+                    `}
+                  />
                 </a>
               </li>
             );
@@ -118,115 +118,85 @@ export default function Navbar() {
         </ul>
 
         {/* ================= RIGHT SIDE ================= */}
-        <div className="hidden lg:flex items-center gap-3 shrink-0">
-          <div className="flex items-center gap-2">
+        <div className="hidden md:flex items-center gap-5 shrink-0">
+          <div className="flex items-center gap-3">
             <JoinUsButton />
             <SRLAppointmentButton />
           </div>
-
-          <div className="flex items-center gap-2 opacity-80">
-            <a
-              href="https://svkm.org.in/"
-              target="_blank"
-              rel="noreferrer"
-              className="transition-transform duration-200 hover:scale-105"
-              aria-label="SVKM website"
-            >
-              <img src={svkmLogo} alt="SVKM Logo" className="h-8" />
+          
+                    <div className="hidden lg:flex items-center gap-4 border-l border-gray-300 pl-5">
+            <a href="https://www.svkm.ac.in/" target="_blank" rel="noopener noreferrer" className="transition-transform hover:scale-110">
+              <img src={svkmLogo} alt="SVKM Logo" className="h-12 drop-shadow-md" />
             </a>
-            <a
-              href="https://ksv.ac.in/"
-              target="_blank"
-              rel="noreferrer"
-              className="transition-transform duration-200 hover:scale-105"
-              aria-label="KSV website"
-            >
-              <img src={ksvLogo} alt="KSV Logo" className="h-8" />
+            <a href="https://www.ksv.ac.in/" target="_blank" rel="noopener noreferrer" className="transition-transform hover:scale-110">
+              <img src={ksvLogo} alt="KSV Logo" className="h-12 drop-shadow-md" />
             </a>
-            <a
-              href="https://www.mmpsrpc.in/"
-              target="_blank"
-              rel="noreferrer"
-              className="transition-transform duration-200 hover:scale-105"
-              aria-label="MMPSRPC website"
-            >
-              <img src={mmpsrpcLogo} alt="MMPSRPC Logo" className="h-8" />
+                        <a href="https://www.mmpsrpc.in/" target="_blank" rel="noopener noreferrer" className="cursor-pointer transition-transform hover:scale-110">
+              <img src={mmpsrpcLogo} alt="MMPSRPC Logo" className="h-12 drop-shadow-md" />
             </a>
           </div>
         </div>
 
-        {/* ================= MOBILE TOGGLE ================= */}
-        <button
-          onClick={() => setIsOpen(!isOpen)}
-          className="lg:hidden p-2 rounded-md hover:bg-gray-100"
-          aria-label="Toggle navigation menu"
-          aria-controls="mobile-menu"
-          aria-expanded={isOpen}
-        >
-          {isOpen ? (
-            <X size={24} className="text-[#05877a]" />
-          ) : (
-            <Menu size={24} className="text-[#05877a]" />
-          )}
-        </button>
+
       </div>
 
-      {/* ================= MOBILE MENU ================= */}
-      {isOpen && (
-        <div id="mobile-menu" className="lg:hidden bg-white border-t border-gray-200">
-          <div className="px-6 py-4 flex flex-col gap-2">
-            {navItems.map((item) => (
-              <a
-                key={item.id}
-                href={`#${item.id}`}
-                className={`block py-2 text-sm font-medium ${
-                  activeSection === item.id
-                    ? "text-[#05877a]"
-                    : "text-gray-700"
-                }`}
-                onClick={() => setIsOpen(false)}
-              >
-                {item.label}
-              </a>
-            ))}
-          </div>
 
-          <div className="px-6 pb-4 flex flex-col gap-3">
-            <JoinUsButton />
-            <SRLAppointmentButton />
-          </div>
 
-          <div className="px-6 pb-5 flex flex-wrap items-center gap-3 opacity-80">
-            <a
-              href="https://svkm.org.in/"
-              target="_blank"
-              rel="noreferrer"
-              className="transition-transform duration-200 hover:scale-105"
-              aria-label="SVKM website"
-            >
-              <img src={svkmLogo} alt="SVKM Logo" className="h-8" />
-            </a>
-            <a
-              href="https://ksv.ac.in/"
-              target="_blank"
-              rel="noreferrer"
-              className="transition-transform duration-200 hover:scale-105"
-              aria-label="KSV website"
-            >
-              <img src={ksvLogo} alt="KSV Logo" className="h-8" />
-            </a>
-            <a
-              href="https://www.mmpsrpc.in/"
-              target="_blank"
-              rel="noreferrer"
-              className="transition-transform duration-200 hover:scale-105"
-              aria-label="MMPSRPC website"
-            >
-              <img src={mmpsrpcLogo} alt="MMPSRPC Logo" className="h-8" />
-            </a>
-          </div>
-        </div>
-      )}
+      {/* ✅ GLOBAL GLOW STYLE */}
+      <style>{`
+        @property --a {
+          syntax: "<angle>";
+          initial-value: 0deg;
+          inherits: false;
+        }
+
+        @keyframes glowSpin {
+          to { --a: 1turn; }
+        }
+
+        @keyframes slow-spin {
+          from {
+            transform: rotate(0deg);
+          }
+          to {
+            transform: rotate(360deg);
+          }
+        }
+
+        .glow-btn {
+          background: inherit;
+          border-radius: 0.75rem;
+          position: relative;
+          overflow: hidden;
+          z-index: 0;
+          box-shadow: 0 10px 20px rgba(0,0,0,0.1);
+          transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .glow-btn:hover {
+          transform: translateY(-3px);
+          box-shadow: 0 15px 30px rgba(0,0,0,0.2);
+        }
+
+        .glow-layer {
+          position: absolute;
+          inset: -0.7em;
+          border-radius: inherit;
+          border: solid 0.7em;
+          border-image: conic-gradient(
+            from var(--a),
+            #05877a,
+            #04725f,
+            #06a990,
+            #05877a,
+            #04725f,
+            #05877a
+          ) 1;
+          filter: blur(0.6em);
+          animation: glowSpin 4s linear infinite;
+          pointer-events: none;
+        }
+      `}</style>
     </nav>
   );
 }

@@ -1,56 +1,96 @@
-import heroVideo from "../assets/hero-bg.mp4";
+import { useState, useEffect } from "react";
+
+// 👉 Replace with your actual images
+import slide1 from "../assets/hero1.jpeg";
+import slide2 from "../assets/hero2.jpeg";
+import slide3 from "../assets/hero3.jpeg";
+// import slide4 from "../assets/hero4.jpg";
+// import slide5 from "../assets/hero5.jpg";
 
 export default function Hero() {
+  const [current, setCurrent] = useState(0);
+
+  const slides = [
+    {
+      image: slide1,
+      align: "items-start justify-end text-right pt-28", // ✅ TOP RIGHT
+    },
+    {
+      image: slide2,
+      align: "items-center justify-center text-center",
+    },
+     {
+       image: slide3,
+       align: "items-center justify-center text-center",
+     },
+    // {
+    //   image: slide4,
+    //   align: "items-center justify-center text-center",
+    // },
+    // {
+    //   image: slide5,
+    //   align: "items-center justify-center text-center",
+    // },
+  ];
+
+  // Auto slide
+  useEffect(() => {
+    const interval = setInterval(() => {
+      setCurrent((prev) => (prev + 1) % slides.length);
+    }, 5000);
+    return () => clearInterval(interval);
+  }, []);
+
   return (
-    <section
-      id="top"
-      className="min-h-screen flex items-center"
-      style={{ backgroundColor: "rgba(5, 135, 122, 0.06)" }} // very light SRL green
-    >
-      <div className="max-w-7xl mx-auto px-6 grid grid-cols-1 lg:grid-cols-2 gap-12 items-center w-full">
+    <section id="top" className="relative h-screen w-full overflow-hidden">
 
-        {/* ================= LEFT: VIDEO ================= */}
-        <div className="relative w-full h-70 sm:h-90 lg:h-105 flex items-center justify-center">
-          <video
-            className="w-full h-full object-contain rounded-2xl shadow-lg"
-            src={heroVideo}
-            autoPlay
-            loop
-            muted
-            playsInline
-          />
-        </div>
+      {/* ===== BACKGROUND SLIDES ===== */}
+      {slides.map((slide, index) => (
+        <img
+          key={index}
+          src={slide.image}
+          alt="hero"
+          className={`absolute inset-0 w-full h-full object-cover transition-opacity duration-700 ${
+            index === current ? "opacity-100" : "opacity-0"
+          }`}
+        />
+      ))}
 
-        {/* ================= RIGHT: TEXT ================= */}
-        <div className="text-center lg:text-left">
-          <h1 className="text-4xl md:text-5xl font-extrabold text-[#05877a] mb-4 tracking-tight">
-            Student Research Lab
+      {/* Overlay for readability */}
+      <div className="absolute inset-0 bg-black/40" />
+
+      {/* ===== TEXT CONTAINER ===== */}
+      <div
+        className={`absolute inset-0 flex px-6 md:px-16 ${slides[current].align}`}
+      >
+        <div className="max-w-2xl">
+
+          {/* 👉 YOUR EXACT TEXT STYLE */}
+          <h1 className="text-white text-5xl md:text-7xl font-semibold tracking-tight drop-shadow-lg">
+            Students Research Lab
           </h1>
 
-          <h2 className="text-lg md:text-xl text-[#05877a]/80 mb-8">
-            MMPSRPC · Kadi Sarva Vishwavidyalaya
-          </h2>
-
-          {/* Animated tagline */}
-          <p
-            className="
-              text-gray-700
-              text-base
-              md:text-lg
-              leading-relaxed
-              max-w-xl
-              mx-auto
-              lg:mx-0
-              animate-fade-up
-            "
-            style={{ animationDelay: "300ms" }}
-          >
+          <p className="text-white/90 text-lg md:text-xl drop-shadow mt-4">
             Fostering a disciplined research culture, consistency in academic
             practice, and excellence through collaborative scholarly engagement.
           </p>
-        </div>
 
+        </div>
       </div>
+
+      {/* ===== DOT INDICATORS ===== */}
+      <div className="absolute bottom-6 left-1/2 -translate-x-1/2 flex gap-3">
+        {slides.map((_, index) => (
+          <button
+            key={index}
+            onClick={() => setCurrent(index)}
+            className={`w-3 h-3 rounded-full transition ${
+              current === index ? "bg-white" : "bg-white/40"
+            }`}
+          />
+        ))}
+      </div>
+
     </section>
   );
 }

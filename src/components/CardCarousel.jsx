@@ -6,8 +6,7 @@ const CARD_HEIGHT = 400;
 const GAP = 48;
 const BOTTOM_SPACE = 160;
 
-export default function CardCarousel({ title, cards }) {
-  const [index, setIndex] = useState(0);
+export default function CardCarousel({ title, cards, sectionId }) {  const [index, setIndex] = useState(0);
 
   const next = () =>
     setIndex((i) => (i === cards.length - 1 ? 0 : i + 1));
@@ -26,8 +25,7 @@ export default function CardCarousel({ title, cards }) {
   }, [index, cards]);
 
   return (
-    <section className="bg-white px-16 pt-20">
-      <h2 className="text-center text-2xl font-bold mb-16">
+    <section className="bg-white px-16 pt-20" id={sectionId}>      <h2 className="text-center text-2xl font-bold mb-16">
         {title}
       </h2>
 
@@ -89,7 +87,7 @@ function Arrow({ dir, onClick }) {
     <button
       onClick={onClick}
       className={`absolute ${
-  dir === "left" ? "left-[-32px]" : "right-[-32px]"
+  dir === "left" ? "-left-8" : "-right-8"
 } top-1/2 -translate-y-1/2
 w-14 h-14 rounded-full
 bg-[#05877a]
@@ -128,7 +126,7 @@ function ImageCard({ item }) {
   return (
     <div
       onClick={() => item.link && window.open(item.link, "_blank")}
-      className="w-[360px] h-[400px] rounded-xl overflow-hidden cursor-pointer"
+      className="w-90 h-100 rounded-xl overflow-hidden cursor-pointer"
     >
       <MediaOverlay
         image={item.image}
@@ -157,7 +155,7 @@ function VideoCard({ item, isActive }) {
   return (
     <div
       onClick={() => item.link && window.open(item.link, "_blank")}
-      className="w-[360px] h-[400px] rounded-xl overflow-hidden relative group cursor-pointer"
+      className="w-90 h-100 rounded-xl overflow-hidden relative group cursor-pointer"
     >
       {/* 🔥 Blurred background */}
     <img

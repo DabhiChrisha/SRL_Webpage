@@ -1,6 +1,7 @@
 /* Global reset + box-sizing */
 html, body, #root {
   height: 100%;
+  width: 100%;
   margin: 0;
   padding: 0;
   -webkit-font-smoothing: antialiased;
@@ -10,19 +11,12 @@ html, body, #root {
 }
 *, *::before, *::after { box-sizing: inherit; }
 
-/* Page container (responsive) */
+/* Page container (responsive full-screen) */
 #root {
-  max-width: 1200px; /* constrain on very large screens */
+  min-height: 100vh;
   width: 100%;
-  margin: 0 auto;
-  padding: 1rem; /* mobile-first padding */
-  text-align: center;
-}
-@media (min-width: 640px) {
-  #root { padding: 1.25rem; }
-}
-@media (min-width: 1024px) {
-  #root { padding: 2rem; }
+  margin: 0;
+  padding: 0;
 }
 
 /* Ensure images and svgs scale nicely */

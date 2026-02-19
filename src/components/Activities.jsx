@@ -153,7 +153,7 @@ function Arrow({ dir, onClick }) {
     <button
       onClick={onClick}
       className={`absolute ${
-        dir === "left" ? "left-[-32px]" : "right-[-32px]"
+        dir === "left" ? "-left-8" : "-right-8"
       } top-1/2 -translate-y-1/2
       w-14 h-14 rounded-full
       border border-gray-300 bg-white
@@ -187,8 +187,8 @@ function Arrow({ dir, onClick }) {
         >
           <polyline points="9 18 15 12 9 6" />
         </svg>
-      )}
-    </button>
+  )}
+</button>
   );
 }
 
@@ -204,7 +204,7 @@ function ImageCard({ item }) {
   return (
     <div
       onClick={handleClick}
-      className="w-[320px] h-[360px] rounded-xl overflow-hidden cursor-pointer"
+      className="w-[320px] h-90 rounded-xl overflow-hidden cursor-pointer"
     >
       <MediaOverlay
         image={item.image}
@@ -235,7 +235,7 @@ function VideoCard({ item, isActive }) {
   return (
     <div
       onClick={() => item.link && window.open(item.link, "_blank")}
-      className="w-[320px] h-[360px] rounded-xl overflow-hidden relative group cursor-pointer"
+      className="w-[320px] h-90 rounded-xl overflow-hidden relative group cursor-pointer"
     >
 
       <video
