@@ -28,7 +28,7 @@ export default function Leaderboard() {
     { rank: 16, name: "Kanudawala Zeel PareshKumar", points: 71, area: "Analysis", photo: "/students/Kanudawala Zeel PareshKumar.jpeg" },
     { rank: 17, name: "Krishna Bhatt", points: 70, area: "Research", photo: "/students/Krishna Bhatt.jpeg" },
     { rank: 18, name: "Krutika Vijaybhai Patel", points: 69, area: "Development", photo: "/students/Krutika Vijaybhai Patel.jpeg" },
-    { rank: 19, name: "Mihir Patel", points: 68, area: "Systems", photo: "/students/Mihir Patel.jpeg" },
+    { rank: 19, name: "Mihir Patel", points: 68, area: "Systems", photo: "/students/Mihir Patel.png" },
     { rank: 20, name: "Padh Charmi Ketankumar", points: 66, area: "Development", photo: "/students/Padh Charmi Ketankumar.jpeg" },
     { rank: 21, name: "Panchal Henit Shaileshbhai", points: 65, area: "Analysis", photo: "/students/Panchal Henit Shaileshbhai.jpeg" },
     { rank: 22, name: "Pande Hemant Rameshwarkumar", points: 64, area: "Research", photo: "/students/Pande Hemant Rameshwarkumar.jpeg" },

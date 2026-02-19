@@ -71,8 +71,8 @@ export default function Navbar() {
               </div>
 
           <div className="block leading-none whitespace-nowrap">
-            <div className="text-xs sm:text-sm md:text-lg font-extrabold text-[#05877a]">Student Research Lab</div>
-            <div className="text-xs text-gray-500">MMPSRPC, KSV</div>
+            <div className="text-xs sm:text-sm md:text-lg font-extrabold text-[#05877a]">Students Research Lab</div>
+            <div className="text-xs text-gray-500">MMPSRPC, Kadi Sarva Vishwavidyalaya</div>
           </div>
         </a>
 
@@ -125,7 +125,7 @@ export default function Navbar() {
           </div>
           
                     <div className="hidden lg:flex items-center gap-4 border-l border-gray-300 pl-5">
-            <a href="https://www.svkm.ac.in/" target="_blank" rel="noopener noreferrer" className="transition-transform hover:scale-110">
+            <a href="https://svkm.org.in/" target="_blank" rel="noopener noreferrer" className="transition-transform hover:scale-110">
               <img src={svkmLogo} alt="SVKM Logo" className="h-12 drop-shadow-md" />
             </a>
             <a href="https://www.ksv.ac.in/" target="_blank" rel="noopener noreferrer" className="transition-transform hover:scale-110">

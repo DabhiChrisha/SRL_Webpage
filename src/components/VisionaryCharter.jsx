@@ -66,7 +66,7 @@ export default function VisionaryCharter() {
           </h2>
           <p className="text-[#f8e6c1]/90 text-lg">
             The principles that define the purpose, discipline, and direction of
-            the Student Research Lab.
+            the Students Research Lab.
           </p>
         </div>
 
@@ -81,7 +81,7 @@ export default function VisionaryCharter() {
             </h3>
 
             <p className="text-gray-700 leading-relaxed">
-              The Student Research Lab (SRL) is a focused academic ecosystem for
+              The Students Research Lab (SRL) is a focused academic ecosystem for
               students who prioritize discipline, consistency, and intellectual
               rigor in research and scholarly pursuits.
             </p>

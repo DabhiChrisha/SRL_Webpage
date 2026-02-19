@@ -5,58 +5,12 @@ import SplashCursor from "./SplashCursor";
 import { db, auth } from "../firebase";
 import { signInAnonymously } from "firebase/auth";
 
-import { doc, runTransaction } from "firebase/firestore";
+import { doc, runTransaction, getDoc } from "firebase/firestore";
 
 export default function StatsSection() {
   const sectionRef = useRef(null);
-useEffect(() => {
-  const incrementVisitor = async () => {
-    // ✅ prevent duplicate increment in same tab lifecycle
-    if (sessionStorage.getItem("visitorCounted")) return;
-
-    try {
-      // wait for anonymous auth
-      if (!auth.currentUser) {
-        await signInAnonymously(auth);
-      }
-
-      const docRef = doc(db, "stats", "visitors");
-
-      const newCount = await runTransaction(db, async (transaction) => {
-        const snap = await transaction.get(docRef);
-
-        if (!snap.exists()) {
-          transaction.set(docRef, { count: 1 });
-          return 1;
-        } else {
-          const updated = snap.data().count + 1;
-          transaction.update(docRef, { count: updated });
-          return updated;
-        }
-      });
-
-      // mark counted for this tab session
-      sessionStorage.setItem("visitorCounted", "true");
-
-      setVisitorCount(newCount);
-
-      setDisplayCounts((prev) => {
-        const updated = [...prev];
-        updated[0] = newCount;
-        return updated;
-      });
-
-      console.log("✅ Visitor incremented:", newCount);
-
-    } catch (error) {
-      console.error("🔥 Firebase transaction failed:", error);
-    }
-  };
-
-  incrementVisitor();
-}, []);
-
-
+  const hasIncremented = useRef(false);
+  
   const [visible, setVisible] = useState(false);
   const [visitorCount, setVisitorCount] = useState(0);
   const [displayCounts, setDisplayCounts] = useState([0, 0, 0, 0]);
@@ -64,7 +18,7 @@ useEffect(() => {
   const stats = [
     {
       title: "Total Visitors",
-      value: visitorCount,
+      value: displayCounts[0],
       icon: TrendingUp,
       color: "from-[#05877a] to-[#046b64]"
     },
@@ -130,12 +84,53 @@ useEffect(() => {
     incrementVisitor();
   }, []);
 
+  // Fetch current visitor count on mount
+  useEffect(() => {
+    const fetchVisitorCount = async () => {
+      try {
+        const docRef = doc(db, "stats", "visitors");
+        const docSnap = await getDoc(docRef);
+        
+        if (docSnap.exists()) {
+          const count = docSnap.data().count;
+          setVisitorCount(count);
+          setDisplayCounts((prev) => {
+            const updated = [...prev];
+            updated[0] = count;
+            return updated;
+          });
+          console.log("✅ Fetched visitor count:", count);
+        }
+      } catch (error) {
+        console.error("❌ Failed to fetch visitor count:", error);
+      }
+    };
+
+    fetchVisitorCount();
+  }, []);
+
   // Count up animation (skip visitor card)
   useEffect(() => {
     if (!visible) return;
 
     const intervals = stats.map((stat, idx) => {
-      if (idx === 0) return null;
+      if (idx === 0) {
+        // For visitor count, animate from current displayCounts[0] to visitorCount
+        const targetValue = visitorCount;
+        const currentValue = displayCounts[0];
+        const difference = targetValue - currentValue;
+        const increment = Math.ceil(difference / 30);
+
+        return setInterval(() => {
+          setDisplayCounts((prev) => {
+            const newCounts = [...prev];
+            if (newCounts[0] < targetValue) {
+              newCounts[0] = Math.min(newCounts[0] + increment, targetValue);
+            }
+            return newCounts;
+          });
+        }, 50);
+      }
 
       const increment = Math.ceil(stat.value / 50);
 
@@ -151,7 +146,7 @@ useEffect(() => {
     });
 
     return () => intervals.forEach((i) => i && clearInterval(i));
-  }, [visible]);
+  }, [visible, visitorCount]);
 
   // Scroll reveal animation
   useEffect(() => {
@@ -176,7 +171,7 @@ useEffect(() => {
       className="relative w-full py-20 md:py-32 overflow-hidden"
     >
       {/* Background */}
-      <div className="absolute inset-0 z-0 bg-gradient-to-br from-[#045850] via-[#034d47] to-[#04756b]">
+      <div className="absolute inset-0 z-0 bg-linear-to-br from-[#045850] via-[#034d47] to-[#04756b]">
         <SplashCursor />
       </div>
 

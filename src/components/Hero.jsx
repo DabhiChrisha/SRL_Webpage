@@ -1,7 +1,7 @@
 import { useState, useEffect } from "react";
 
 // 👉 Replace with your actual images
-import slide1 from "../assets/hero1.jpeg";
+import slide1 from "../assets/HERo123.png";
 import slide2 from "../assets/hero2.jpeg";
 import slide3 from "../assets/hero3.jpeg";
 // import slide4 from "../assets/hero4.jpg";
@@ -61,7 +61,7 @@ export default function Hero() {
 
       {/* ===== TEXT CONTAINER ===== */}
       <div
-        className={`absolute inset-0 flex px-6 md:px-16 ${slides[current].align}`}
+        className={`absolute inset-0 flex px-2 md:px-8 ${slides[current].align}`}
       >
         <div className="max-w-2xl">
 

@@ -51,7 +51,7 @@ function Footer() {
           <div>
             <h3 className="text-lg font-semibold mb-4 text-[#05877a]">Contact Us</h3>
             <address className="text-sm not-italic space-y-2 text-gray-700">
-              <p className="font-semibold">Student Research Lab</p>
+              <p className="font-semibold">Students Research Lab</p>
               <p>Kadi Sarva Vishwavidyalaya</p>
               <p>Gandhinagar, Gujarat, India</p>
               <p>
@@ -96,7 +96,7 @@ function Footer() {
 
         {/* Divider */}
         <div className="mt-12 pt-8 border-t border-[#05877a]/30 text-center text-sm text-gray-700">
-          <p>© {new Date().getFullYear()} Student Research Lab. All rights reserved.</p>
+          <p>© {new Date().getFullYear()} Students Research Lab. All rights reserved.</p>
           <p className="mt-1 text-xs">Excellence Through Discipline</p>
         </div>
         </div>
