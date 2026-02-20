@@ -15,7 +15,7 @@ export default function ResearchBackground() {
         <div className="absolute inset-0 -z-10 overflow-hidden pointer-events-none h-full w-full">
 
             {/* Soft breathing gradient */}
-            <div className="absolute inset-0 bg-gradient-to-br from-white via-[#f3f7f5] to-[#eef4f1] animate-pulseSlow" />
+            <div className="absolute inset-0 bg-gradient-to-br from-[#f0fdfa] via-white to-[#f0fdfa]" />
 
             {/* Floating glow orbs */}
             <div className="absolute w-[500px] h-[500px] bg-[#dbe9e2]/40 rounded-full blur-3xl top-[-150px] left-[20%] animate-float1" />

@@ -87,19 +87,19 @@ export default function StatsSection() {
     },
     {
       title: "Current Members",
-      value: 156,
+      value: 36,
       icon: Users,
       color: "from-[#0d9488] to-[#059669]"
     },
     {
       title: "Ongoing Projects",
-      value: 24,
+      value: 15,
       icon: Zap,
       color: "from-[#f8e6c1] to-[#f3d5a5]"
     },
     {
       title: "Completed Projects",
-      value: 47,
+      value: 10,
       icon: CheckCircle,
       color: "from-[#10b981] to-[#059669]"
     }

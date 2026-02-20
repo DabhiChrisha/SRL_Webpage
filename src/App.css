@@ -1,5 +1,7 @@
 /* Global reset + box-sizing */
-html, body, #root {
+html,
+body,
+#root {
   height: 100%;
   width: 100%;
   margin: 0;
@@ -8,8 +10,15 @@ html, body, #root {
   -moz-osx-font-smoothing: grayscale;
   box-sizing: border-box;
   font-family: 'Libre Baskerville', Georgia, 'Times New Roman', Times, serif;
+  background-color: #f0fdfa;
+  /* constant lightest teal + white background */
 }
-*, *::before, *::after { box-sizing: inherit; }
+
+*,
+*::before,
+*::after {
+  box-sizing: inherit;
+}
 
 /* Page container (responsive full-screen) */
 #root {
@@ -20,7 +29,9 @@ html, body, #root {
 }
 
 /* Ensure images and svgs scale nicely */
-img, svg, picture {
+img,
+svg,
+picture {
   max-width: 100%;
   height: auto;
   display: block;
@@ -28,11 +39,18 @@ img, svg, picture {
 
 /* Prevent sticky header from overlapping sections when using anchor links */
 /* Add this class to section wrappers (or rely on global section elements) */
-.section, section {
-  scroll-margin-top: 4.5rem; /* safe default for navbar height */
+.section,
+section {
+  scroll-margin-top: 4.5rem;
+  /* safe default for navbar height */
 }
+
 @media (min-width: 1024px) {
-  .section, section { scroll-margin-top: 5.25rem; }
+
+  .section,
+  section {
+    scroll-margin-top: 5.25rem;
+  }
 }
 
 /* Logo styles (kept from original) */
@@ -42,16 +60,23 @@ img, svg, picture {
   will-change: filter;
   transition: filter 300ms;
 }
+
 .logo:hover {
   filter: drop-shadow(0 0 2em #646cffaa);
 }
+
 .logo.react:hover {
   filter: drop-shadow(0 0 2em #61dafbaa);
 }
 
 @keyframes logo-spin {
-  from { transform: rotate(0deg); }
-  to { transform: rotate(360deg); }
+  from {
+    transform: rotate(0deg);
+  }
+
+  to {
+    transform: rotate(360deg);
+  }
 }
 
 @media (prefers-reduced-motion: no-preference) {
@@ -61,8 +86,13 @@ img, svg, picture {
 }
 
 /* Card + misc (kept) */
-.card { padding: 2em; }
-.read-the-docs { color: #888; }
+.card {
+  padding: 2em;
+}
+
+.read-the-docs {
+  color: #888;
+}
 
 /* Minor helpers for responsive layout */
 .container-center {
@@ -74,12 +104,20 @@ img, svg, picture {
 }
 
 /* Make buttons and interactive elements scale on smaller screens */
-button, .btn {
+button,
+.btn {
   -webkit-tap-highlight-color: transparent;
 }
 
 /* Ensure the navbar remains sticky (make only .site-navbar sticky, not every header/nav) */
-.site-navbar { position: sticky; top: 0; z-index: 50; }
+.site-navbar {
+  position: sticky;
+  top: 0;
+  z-index: 50;
+}
 
 /* Small accessibility improvement: focus outlines */
-:focus { outline: 3px solid rgba(5,135,122,0.18); outline-offset: 2px; }
+:focus {
+  outline: 3px solid rgba(5, 135, 122, 0.18);
+  outline-offset: 2px;
+}

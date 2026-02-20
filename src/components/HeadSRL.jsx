@@ -4,7 +4,7 @@ import mamPhoto from "../assets/Ma'am Photo.png";
 
 export default function HeadSRL() {
   return (
-    <section className="relative py-28 bg-linear-to-b from-white to-[#05877a]/10 overflow-hidden">
+    <section className="relative py-28 overflow-hidden">
       {/* Ambient MVPBlocks accents */}
       <div className="absolute inset-0 pointer-events-none">
         <div className="absolute -top-40 -left-40 w-lg h-128 bg-[#05877a]/10 rounded-full blur-3xl" />

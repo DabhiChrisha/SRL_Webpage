@@ -9,6 +9,8 @@ body {
   margin: 0;
   padding: 0;
   overflow-x: hidden;
+  background-color: #f0fdfa;
+  /* lightest teal — site-wide constant background */
 }
 
 h1,

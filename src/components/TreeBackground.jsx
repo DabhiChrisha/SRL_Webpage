@@ -119,8 +119,8 @@ const TreeBackground = ({ noise = 0 }) => {
 
             // Gradient Background (Subtle)
             const gradient = ctx.createLinearGradient(0, 0, 0, canvas.height);
-            gradient.addColorStop(0, "#f0fdf4");
-            gradient.addColorStop(1, "#f4f6f8");
+            gradient.addColorStop(0, "#f0fdfa");
+            gradient.addColorStop(1, "#ffffff");
             ctx.fillStyle = gradient;
             ctx.fillRect(0, 0, canvas.width, canvas.height);
 

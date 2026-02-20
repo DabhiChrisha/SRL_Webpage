@@ -2,6 +2,7 @@ import { useMemo, useState } from "react";
 import students from "../data/srlStudents.json";
 import ChromaGrid from "@/components/react-bits/ChromaGrid";
 import { Mail, Linkedin } from "lucide-react";
+import GradientText from "./GradientText";
 
 export default function SRLStudentMembers() {
   const [activeStudent, setActiveStudent] = useState(null);
@@ -54,12 +55,22 @@ export default function SRLStudentMembers() {
   const closeModal = () => setActiveStudent(null);
 
   return (
-    <section id="srl-student-members" className="py-16 sm:py-24 lg:py-32 bg-[#faf1d5] scroll-mt-24">
+    <section id="srl-student-members" className="py-16 sm:py-24 lg:py-32 scroll-mt-24">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         {/* Research Assistants — displayed separately */}
         {researchAssistants.length > 0 && (
           <div className="mb-12">
-            <h2 className="text-xl sm:text-2xl font-semibold text-[#064E3B] mb-6">Research Assistants</h2>
+            <div className="mb-8 flex justify-center">
+              <GradientText
+                colors={["#0b3d3a", "#c9a24d", "#0b3d3a", "#0b3d3a"]}
+                animationSpeed={3}
+                showBorder={false}
+                animateOnHover={true}
+                className="text-4xl sm:text-5xl font-merriweather font-bold px-4 py-2"
+              >
+                Research Assistants
+              </GradientText>
+            </div>
             <div className="grid grid-cols-1 sm:grid-cols-2 gap-6 sm:gap-8">
               {researchAssistants.map((ra) => (
                 <article
@@ -137,7 +148,17 @@ export default function SRLStudentMembers() {
 
         {/* Members grid (ChromaGrid) */}
         <div>
-          <h2 className="text-xl sm:text-2xl font-semibold text-[#064E3B] mb-6">Student Members</h2>
+          <div className="mb-8 flex justify-center">
+            <GradientText
+              colors={["#0b3d3a", "#c9a24d", "#0b3d3a", "#0b3d3a"]}
+              animationSpeed={3}
+              showBorder={false}
+              animateOnHover={true}
+              className="text-4xl sm:text-5xl font-merriweather font-bold px-4 py-2"
+            >
+              Student Members
+            </GradientText>
+          </div>
           <ChromaGrid items={chromaItems} onImageClick={(s) => s.reflection && openModalFor(s)} />
         </div>
       </div>
