@@ -1,9 +1,15 @@
+import { useEffect } from "react";
 import Navbar from "../components/Navbar";
 import Footer from "../components/Footer";
 import ScrollToTop from "../components/ScrollToTop";
 import JoinUsForm from "../components/JoinUs";
 
 export default function JoinUs() {
+  // Scroll to top when component mounts
+  useEffect(() => {
+    window.scrollTo(0, 0);
+  }, []);
+
   return (
     <div className="relative min-h-screen text-deepgreen bg-[#f6f9f7]">
       {/* Soft radial light (top) */}

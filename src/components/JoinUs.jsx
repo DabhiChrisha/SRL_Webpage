@@ -85,7 +85,18 @@ export default function JoinUs() {
 
   return (
     <div className="max-w-4xl mx-auto px-4 py-12">
-      <div className="bg-white rounded-2xl shadow-lg p-8 md:p-12">
+      <div className="bg-white rounded-2xl shadow-lg p-8 md:p-12 relative">
+        {/* Close Button */}
+        <button
+          onClick={handleCancel}
+          className="absolute top-4 right-4 text-gray-400 hover:text-gray-600 transition-colors p-2 hover:bg-gray-100 rounded-full"
+          aria-label="Close"
+        >
+          <svg xmlns="http://www.w3.org/2000/svg" className="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M6 18L18 6M6 6l12 12" />
+          </svg>
+        </button>
+        
         <h2 className="text-4xl font-bold text-[#05877a] mb-2">
           Join SRL
         </h2>

@@ -6,7 +6,6 @@ export default {
   theme: {
     extend: {
       fontFamily: {
-        merriweather: ["Merriweather", "serif"],
         libre: ["Libre Baskerville", "serif"],
         rubik: ["Rubik", "sans-serif"],
       },

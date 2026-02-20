@@ -1,9 +1,9 @@
 import { useState, useEffect } from "react";
 
 // 👉 Replace with your actual images
-import slide1 from "../assets/hero.png";
-import slide2 from "../assets/hero2.jpeg";
-import slide3 from "../assets/hero3.jpeg";
+import slide1 from "../assets/HERO.jpg";
+import slide2 from "../assets/hero2.jpg";
+import slide3 from "../assets/hero3.jpg";
 import srlLogo from "../assets/SRL Logo.png";
 // import slide4 from "../assets/hero4.jpg";
 // import slide5 from "../assets/hero5.jpg";
@@ -76,7 +76,7 @@ export default function Hero() {
           )}
 
           {/* 👉 YOUR EXACT TEXT STYLE */}
-          <h1 className="text-white font-merriweather text-4xl md:text-6xl lg:text-7xl font-bold tracking-tight drop-shadow-lg leading-tight">
+          <h1 className="text-white font-rubik text-4xl md:text-6xl lg:text-7xl font-bold tracking-tight drop-shadow-lg leading-tight">
             Students Research Lab
           </h1>
 
@@ -102,4 +102,4 @@ export default function Hero() {
 
     </section>
   );
-}
+}   

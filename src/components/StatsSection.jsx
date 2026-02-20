@@ -105,31 +105,39 @@ export default function StatsSection() {
     }
   ];
 
-  // Count up animation (skip visitor card as it might be updated async)
+  // Count up animation
   useEffect(() => {
     if (!visible) return;
 
+    const intervals = [];
+
     stats.forEach((stat, idx) => {
-      // We can animate all of them simply
       const increment = Math.ceil(stat.value / 50) || 1;
 
       const interval = setInterval(() => {
         setDisplayCounts((prev) => {
           const newCounts = [...prev];
           if (newCounts[idx] < stat.value) {
-            // Handle visitor count separately if needed, but this generic approach works if stat.value is updated
-            newCounts[idx] = Math.min(newCounts[idx] + increment, stat.value);
+            const updated = Math.min(newCounts[idx] + increment, stat.value);
+            newCounts[idx] = updated;
+            // Clear interval when target is reached
+            if (updated >= stat.value) {
+              clearInterval(interval);
+            }
           }
           return newCounts;
         });
       }, 30);
 
-      // Clear interval when reached or unmount - slight simplification here for brevity
-      // ideally we track intervals. For now let's use the robust logic from previous code if possible or just simplified animation
-      setTimeout(() => clearInterval(interval), 2000);
+      intervals.push(interval);
     });
 
-  }, [visible, visitorCount]);
+    // Cleanup all intervals on unmount
+    return () => {
+      intervals.forEach(interval => clearInterval(interval));
+    };
+
+  }, [visible, visitorCount, stats]);
 
 
 

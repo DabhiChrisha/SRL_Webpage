@@ -65,7 +65,7 @@ export default function Navbar() {
         {/* ================= SRL BRAND ================= */}
         <a
           href="#top"
-          className="flex items-center gap-2 sm:gap-3 shrink-0"
+          className="flex items-center gap-2 sm:gap-3 shrink-0 group"
           onClick={(e) => {
             e.preventDefault();
             window.scrollTo({ top: 0, behavior: "smooth" });
@@ -73,13 +73,13 @@ export default function Navbar() {
           }}
         >
           <div className="flex items-center justify-center">
-            <div className="w-12 h-12 sm:w-16 sm:h-16 rounded-full bg-[#fff6e3] drop-shadow-md flex items-center justify-center">
-              <img src={srlLogo} alt="SRL Logo" className="w-10 h-10 sm:w-14 sm:h-14" />
+            <div className="w-12 h-12 sm:w-16 sm:h-16 rounded-full bg-gradient-to-br from-[#05877a]/10 to-[#046b64]/20 drop-shadow-lg flex items-center justify-center border-2 border-[#05877a]/20 group-hover:border-[#05877a]/40 transition-all duration-300 group-hover:scale-105">
+              <img src={srlLogo} alt="SRL Logo" className="w-9 h-9 sm:w-12 sm:h-12 drop-shadow-sm" />
             </div>
           </div>
 
           <div className="block leading-none whitespace-nowrap">
-            <div className="text-xs sm:text-sm md:text-lg font-extrabold text-[#05877a]">Students Research Lab</div>
+            <div className="text-xs sm:text-sm md:text-lg font-extrabold text-[#05877a] group-hover:text-[#046b64] transition-colors">Students Research Lab</div>
             <div className="text-xs text-gray-500">MMPSRPC, Kadi Sarva Vishwavidyalaya</div>
           </div>
         </a>

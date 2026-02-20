@@ -100,7 +100,7 @@ export default function Activities() {
           animationSpeed={3}
           showBorder={false}
           animateOnHover={true}
-          className="text-5xl font-merriweather font-bold px-4 py-2"
+          className="text-5xl font-rubik font-bold px-4 py-2"
         >
           Activities
         </GradientText>
