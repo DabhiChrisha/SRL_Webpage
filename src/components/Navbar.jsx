@@ -10,6 +10,7 @@ import mmpsrpcLogo from "../assets/MMPSRPC Logo.png";
 export default function Navbar() {
   const [activeSection, setActiveSection] = useState("");
   const [scrolled, setScrolled] = useState(false);
+  const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
 
   const navItems = [
     { label: "Visionary Charter", id: "visionary-charter" },
@@ -48,6 +49,7 @@ export default function Navbar() {
     if (element) {
       element.scrollIntoView({ behavior: "smooth" });
     }
+    setMobileMenuOpen(false); // Close mobile menu after navigation
   };
 
   return (
@@ -145,7 +147,57 @@ export default function Navbar() {
           </div>
         </div>
 
+        {/* ================= MOBILE MENU BUTTON ================= */}
+        <button
+          onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
+          className="lg:hidden flex items-center justify-center w-10 h-10 rounded-lg hover:bg-gray-100 transition-colors"
+          aria-label="Toggle mobile menu"
+        >
+          <svg
+            className="w-6 h-6 text-gray-700"
+            fill="none"
+            strokeLinecap="round"
+            strokeLinejoin="round"
+            strokeWidth="2"
+            viewBox="0 0 24 24"
+            stroke="currentColor"
+          >
+            {mobileMenuOpen ? (
+              <path d="M6 18L18 6M6 6l12 12" />
+            ) : (
+              <path d="M4 6h16M4 12h16M4 18h16" />
+            )}
+          </svg>
+        </button>
+
       </div>
+
+      {/* ================= MOBILE MENU ================= */}
+      {mobileMenuOpen && (
+        <div className="lg:hidden bg-white border-t border-gray-200 shadow-lg">
+          <div className="px-6 py-4 space-y-3">
+            {navItems.map((item) => {
+              const isActive = activeSection === item.id;
+              return (
+                <a
+                  key={item.id}
+                  href={`#${item.id}`}
+                  onClick={(e) => handleNavClick(e, item.id)}
+                  className={`block py-2 text-sm font-medium transition-colors ${
+                    isActive ? "text-[#05877a]" : "text-gray-700 hover:text-[#05877a]"
+                  }`}
+                >
+                  {item.label}
+                </a>
+              );
+            })}
+            <div className="pt-4 border-t border-gray-200 space-y-3">
+              <JoinUsButton />
+              <SRLAppointmentButton />
+            </div>
+          </div>
+        </div>
+      )}
 
       {/* ✅ GLOBAL GLOW STYLE */}
       <style>{`

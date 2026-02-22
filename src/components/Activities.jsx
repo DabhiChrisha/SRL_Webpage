@@ -92,7 +92,7 @@ export default function Activities() {
   }, [index]);
 
   return (
-    <section id="activities" className="relative px-16 pt-20 scroll-mt-24 overflow-hidden z-0">
+    <section id="activities" className="relative px-4 sm:px-8 md:px-16 pt-20 scroll-mt-24 overflow-hidden z-0">
       <ResearchBackground />
       <div className="relative z-10 mb-16 flex justify-center">
         <GradientText
@@ -232,7 +232,7 @@ function ImageCard({ item }) {
   return (
     <div
       onClick={handleClick}
-      className="w-[320px] h-90 rounded-xl overflow-hidden cursor-pointer"
+      className="w-[280px] sm:w-[320px] h-[320px] sm:h-[360px] rounded-xl overflow-hidden cursor-pointer"
     >
       <MediaOverlay
         image={item.image}
@@ -263,7 +263,7 @@ function VideoCard({ item, isActive }) {
   return (
     <div
       onClick={() => item.link && window.open(item.link, "_blank")}
-      className="w-[320px] h-90 rounded-xl overflow-hidden relative group cursor-pointer"
+      className="w-[280px] sm:w-[320px] h-[320px] sm:h-[360px] rounded-xl overflow-hidden relative group cursor-pointer"
     >
 
       <video
