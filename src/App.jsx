@@ -1,22 +1,23 @@
-import React from "react";
+import React, { Suspense, lazy } from "react";
 import { Routes, Route } from "react-router-dom";
 import { Home, Grid3X3, TrendingUp, Users } from "lucide-react";
 
 import Navbar from "./components/Navbar";
-import Footer from "./components/Footer";
 import Hero from "./components/Hero";
-import VisionaryCharter from "./components/VisionaryCharter";
-import Activities from "./components/Activities";
-import Achievements from "./components/Achievements";
-import Leaderboard from "./components/Leaderboard";
-import HeadSRL from "./components/HeadSRL";
-import SRLStudentMembers from "./components/SRLStudentMembers";
-import ContactUs1 from "./components/mvpblocks/contact-us-1";
 import ScrollToTop from "./components/ScrollToTop";
-import Dock from "./components/Dock";
-import StatsSection from "./components/StatsSection";
 import AnimatedPreloader from "./components/AnimatedPreloader";
-import JoinUs from "./pages/JoinUs";
+
+const VisionaryCharter = lazy(() => import("./components/VisionaryCharter"));
+const Activities = lazy(() => import("./components/Activities"));
+const Achievements = lazy(() => import("./components/Achievements"));
+const Leaderboard = lazy(() => import("./components/Leaderboard"));
+const HeadSRL = lazy(() => import("./components/HeadSRL"));
+const SRLStudentMembers = lazy(() => import("./components/SRLStudentMembers"));
+const StatsSection = lazy(() => import("./components/StatsSection"));
+const ContactUs1 = lazy(() => import("./components/mvpblocks/contact-us-1"));
+const Footer = lazy(() => import("./components/Footer"));
+const Dock = lazy(() => import("./components/Dock"));
+const JoinUs = lazy(() => import("./pages/JoinUs"));
 export default function App() {
   const dockItems = [
     { icon: <Home size={20} />, label: 'Visionary', onClick: () => {
@@ -36,6 +37,7 @@ export default function App() {
       if (element) element.scrollIntoView({ behavior: 'smooth' });
     }},
   ];
+  const suspenseFallback = <div className="min-h-[40vh]" />;
   return (
     <Routes>
       <Route path="/" element={
@@ -55,30 +57,38 @@ export default function App() {
             <div className="relative z-10">
               <Navbar />
               <Hero />
-              <VisionaryCharter />
-              <Activities />
-              <Achievements />
-              <Leaderboard />
-              <HeadSRL />
-              <SRLStudentMembers />
-              <StatsSection />
-              <ContactUs1 />
-              <Footer />
-              <ScrollToTop />
+              <Suspense fallback={suspenseFallback}>
+                <VisionaryCharter />
+                <Activities />
+                <Achievements />
+                <Leaderboard />
+                <HeadSRL />
+                <SRLStudentMembers />
+                <StatsSection />
+                <ContactUs1 />
+                <Footer />
+                <ScrollToTop />
+              </Suspense>
             </div>
             {/* Mobile & Tablet Dock at Bottom */}
             <div className="lg:hidden fixed bottom-0 left-0 right-0 z-40 bg-transparent w-full flex justify-center">
-              <Dock 
-                items={dockItems}
-                panelHeight={68}
-                baseItemSize={50}
-                magnification={70}
-              />
+              <Suspense fallback={null}>
+                <Dock 
+                  items={dockItems}
+                  panelHeight={68}
+                  baseItemSize={50}
+                  magnification={70}
+                />
+              </Suspense>
             </div>
           </div>
         </>
       } />
-      <Route path="/join" element={<JoinUs />} />
+      <Route path="/join" element={
+        <Suspense fallback={suspenseFallback}>
+          <JoinUs />
+        </Suspense>
+      } />
     </Routes>
   );
 }

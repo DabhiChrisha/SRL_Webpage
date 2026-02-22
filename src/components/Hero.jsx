@@ -1,6 +1,6 @@
 import { useState, useEffect } from "react";
 
-// 👉 Replace with your actual images
+// 👉 Replace with your actual imagesc
 import slide1 from "../assets/HERO.jpg";
 import slide2 from "../assets/hero2.jpg";
 import slide3 from "../assets/hero3.jpg";

@@ -1,8 +1,9 @@
-import { useMemo, useState } from "react";
+import { Suspense, lazy, useMemo, useState } from "react";
 import students from "../data/srlStudents.json";
-import ChromaGrid from "@/components/react-bits/ChromaGrid";
 import { Mail, Linkedin } from "lucide-react";
 import GradientText from "./GradientText";
+
+const ChromaGrid = lazy(() => import("./react-bits/ChromaGrid"));
 
 export default function SRLStudentMembers() {
   const [activeStudent, setActiveStudent] = useState(null);
@@ -159,7 +160,9 @@ export default function SRLStudentMembers() {
               Student Members
             </GradientText>
           </div>
-          <ChromaGrid items={chromaItems} onImageClick={(s) => s.reflection && openModalFor(s)} />
+          <Suspense fallback={<div className="min-h-[240px]" />}>
+            <ChromaGrid items={chromaItems} onImageClick={(s) => s.reflection && openModalFor(s)} />
+          </Suspense>
         </div>
       </div>
 

@@ -1,9 +1,12 @@
-import { useRef } from "react";
+import { Suspense, lazy, useRef } from "react";
 import { motion, useInView } from "framer-motion";
 
-import Earth from "@/components/ui/globe";
-import { SparklesCore } from "@/components/ui/sparkles";
 import { Mail, Linkedin } from "lucide-react";
+
+const Earth = lazy(() => import("../ui/globe"));
+const SparklesCore = lazy(() =>
+  import("../ui/sparkles").then((module) => ({ default: module.SparklesCore }))
+);
 
 export default function ContactUs1() {
   const containerRef = useRef(null);
@@ -27,15 +30,17 @@ export default function ContactUs1() {
               className="relative p-6 md:p-10 flex flex-col justify-center gap-12"
             >
               {/* Sparkles behind left content */}
-              <SparklesCore
-                id="left-sparkles"
-                background="transparent"
-                minSize={0.6}
-                maxSize={1.2}
-                particleDensity={300}
-                className="absolute inset-0 pointer-events-none"
-                particleColor="#05877a"
-              />
+              <Suspense fallback={null}>
+                <SparklesCore
+                  id="left-sparkles"
+                  background="transparent"
+                  minSize={0.6}
+                  maxSize={1.2}
+                  particleDensity={300}
+                  className="absolute inset-0 pointer-events-none"
+                  particleColor="#05877a"
+                />
+              </Suspense>
 
               {/* Title */}
               <motion.div
@@ -101,12 +106,14 @@ export default function ContactUs1() {
               <article className="relative mx-auto h-[350px] max-w-[450px] overflow-hidden rounded-3xl bg-gradient-to-b from-[#05877a] to-[#05877a]/5 p-6 text-3xl tracking-tight text-white md:h-[450px] md:p-8 md:text-4xl lg:text-5xl">
                 Advancing knowledge through innovative research.
                 <div className="absolute -right-20 -bottom-20 z-10 mx-auto flex h-full w-full max-w-[300px] items-center justify-center transition-all duration-700 hover:scale-105 md:-right-28 md:-bottom-28 md:max-w-[550px]">
-                  <Earth
-                    scale={1.1}
-                    baseColor={[0.02, 0.53, 0.48]}
-                    markerColor={[0, 0, 0]}
-                    glowColor={[0.02, 0.53, 0.48]}
-                  />
+                  <Suspense fallback={<div className="h-full w-full" />}>
+                    <Earth
+                      scale={1.1}
+                      baseColor={[0.02, 0.53, 0.48]}
+                      markerColor={[0, 0, 0]}
+                      glowColor={[0.02, 0.53, 0.48]}
+                    />
+                  </Suspense>
                 </div>
               </article>
             </motion.div>
